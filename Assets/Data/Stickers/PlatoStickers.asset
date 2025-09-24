@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: PlatoStickers
+  m_EditorClassIdentifier: Assembly-CSharp::StickerSet
+  philosopherId: plato
+  stickers:
+  - key: idealism_sun
+    sprite: {fileID: -5341488294955685722, guid: 6f85ec1a15515c64c966b32e1e36347e, type: 3}
+    position: {x: 0, y: 0.8}
+    fadeInTime: 1.21
+    scaleInTime: 0
+    startScale: 0
+    bounce: 1
+    scale: 0.1
