@@ -17,11 +17,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    [SerializeField] AudioMixer mixer;
     [SerializeField] private SoundList[] soundList;
     [SerializeField] private SoundTrack[] soundTracks;
-    private float masterVolume = 1f;
-    private float sfxVolume = 1f;
-    private float musicVolume = 1f;
 
     private AudioSource musicSource;
     private AudioSource sfxSource;
@@ -32,6 +30,9 @@ public class AudioManager : MonoBehaviour
     //Audio mixer group for audio mixer
     [SerializeField] AudioMixerGroup musicGroup;
     [SerializeField] AudioMixerGroup sfxGroup;
+
+    public const string MUSIC_KEY = "musicVolume";
+    public const string SFX_KEY = "sfxVolume";
 
     private void Awake()
     {
@@ -68,25 +69,24 @@ public class AudioManager : MonoBehaviour
             sfxSource = gameObject.AddComponent<AudioSource>();
         }
         sfxSource.outputAudioMixerGroup = sfxGroup;
+
+        LoadVolume();
     }
 
     public void PlaySound(SoundEffectType sound)
     {
-        float volume = Instance.masterVolume * Instance.sfxVolume;
         AudioClip[] clips = Instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-        Instance.sfxSource.PlayOneShot(randomClip, volume);  // Use sfxSource instead
+        Instance.sfxSource.PlayOneShot(randomClip);  // Use sfxSource instead
     }
 
     public void PlaySoundTrack(SoundTrackList soundTrack)
     {
-        float volume = Instance.masterVolume * Instance.musicVolume;
         AudioClip track = Instance.soundTracks[(int)soundTrack].Sounds;
         if (track != null)
         {
             Instance.musicSource.clip = track;
             Instance.musicSource.loop = true;
-            Instance.musicSource.volume = volume;
             Instance.musicSource.Play();
         }
         else
@@ -103,51 +103,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public float MasterVolume
+    void LoadVolume() // Volume saved in VolumeSettings.cs
     {
-        get => Instance != null ? Instance.masterVolume : 1f;
-        set
-        {
-            if (Instance == null)
-            {
-                return;
-            }
+        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 1f);
 
-            Instance.masterVolume = Mathf.Clamp01(value);
-            UpdateVolumeSettings();
-        }
-    }
-
-    public float SFXVolume
-    {
-        get => Instance.sfxVolume;
-        set
-        {
-            Instance.sfxVolume = Mathf.Clamp01(value);
-            UpdateVolumeSettings();
-        }
-    }
-
-    public float MusicVolume
-    {
-        get => Instance.musicVolume;
-        set
-        {
-            Instance.musicVolume = Mathf.Clamp01(value);
-            UpdateVolumeSettings();
-        }
-    }
-
-    private void UpdateVolumeSettings()
-    {
-        if (Instance == null)
-        {
-            Debug.LogWarning("SoundManager instance is not initialized. Cannot update volume settings.");
-            return;
-        }
-        // Update the AudioSource volumes based on the current settings
-        Instance.musicSource.volume = Instance.masterVolume * Instance.musicVolume;
-        Instance.sfxSource.volume = Instance.masterVolume * Instance.sfxVolume;
+        mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
+        mixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
     }
 
 #if UNITY_EDITOR
