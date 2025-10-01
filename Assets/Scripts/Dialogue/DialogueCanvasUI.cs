@@ -100,6 +100,8 @@ public class DialogueCanvasUI : MonoBehaviour
 			{
 				// Advance to next line/end
 				CancelAutoAdvance();
+				if (AudioManager.IsInitialized)
+					AudioManager.Instance.PlaySound(SoundEffectType.DialogueChoice);
 				runner?.Continue();
 			}
 		}
@@ -141,6 +143,9 @@ public class DialogueCanvasUI : MonoBehaviour
 			int index = i;
 			btn.onClick.AddListener(() =>
 			{
+				if (AudioManager.IsInitialized)
+					AudioManager.Instance.PlaySound(SoundEffectType.DialogueChoice);
+
 				CancelTypewriter();
 				CancelAutoAdvance();
 				DisableInteract();
@@ -192,6 +197,11 @@ public class DialogueCanvasUI : MonoBehaviour
 		for (int i = 1; i <= total; i++)
 		{
 			bodyTMP.maxVisibleCharacters = i;
+
+			// play a short tick per character (guarded)
+			if (AudioManager.IsInitialized)
+				AudioManager.Instance.PlaySound(SoundEffectType.DialogueTick);
+
 			yield return new WaitForSeconds(delay);
 		}
 

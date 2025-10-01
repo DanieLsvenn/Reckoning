@@ -6,6 +6,8 @@ public class SoundTrackPlayer : MonoBehaviour
 
     [SerializeField] SoundTrackList soundTrack;
 
+    public static bool IsInitialized => Instance != null;
+
     public void Start()
     {
         // Singleton

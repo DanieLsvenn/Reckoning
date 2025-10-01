@@ -49,7 +49,13 @@ public class PhilosopherNPC : MonoBehaviour
     public void TryInteract()
     {
         if (playerInRange)
+        {
+            if (AudioManager.IsInitialized)
+                AudioManager.Instance.PlaySound(SoundEffectType.DialogueInteract);
+            if (FogRelocator.IsInitialized)
+                FogRelocator.Instance.RelocateFog();
             OnRequestInteract?.Invoke(this);
+        }
     }
 
     public PhilosopherData Data => data;
