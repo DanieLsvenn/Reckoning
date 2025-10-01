@@ -1,13 +1,16 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class SoundTrackChanger : MonoBehaviour
 {
     private Collider2D stTrigger;
-    [SerializeField] SoundTrackList SoundTrack;
+    [SerializeField] private SoundTrackList SoundTrack;
 
     private void Awake()
     {
         stTrigger = GetComponent<Collider2D>();
+
+        stTrigger.isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
