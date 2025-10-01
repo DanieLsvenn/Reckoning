@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem; // add new input system support
@@ -31,6 +32,9 @@ public class PlayerController2D : MonoBehaviour
 
     [Header("Interaction Routing")]
     [SerializeField] private bool fallbackRouteInteraction = true;
+
+    // Audio related variables
+    private Coroutine _walking;
 
     private void Reset()
     {
@@ -84,8 +88,18 @@ public class PlayerController2D : MonoBehaviour
 #if ENABLE_INPUT_SYSTEM
         if (keyboard != null)
         {
-            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed) { input -= 1f; leftNow = true; }
-            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed) { input += 1f; rightNow = true; }
+            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+            {
+                input -= 1f; leftNow = true;
+                if (_walking == null)
+                    _walking = StartCoroutine(WalkingSFX());
+            }
+            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+            {
+                input += 1f; rightNow = true;
+                if (_walking == null)
+                    _walking = StartCoroutine(WalkingSFX());
+            }
         }
         else
 #endif
@@ -209,5 +223,16 @@ public class PlayerController2D : MonoBehaviour
             if (logInput) Debug.Log($"[PlayerController2D] Fallback route: calling TryInteract() on nearest NPC '{best.name}'.");
             best.TryInteract();
         }
+    }
+
+    // Audio stuffs
+    private IEnumerator WalkingSFX()
+    {
+        while (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed || keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+        {
+        AudioManager.Instance.PlaySound(SoundEffectType.ConcreteStepping);
+            yield return new WaitForSeconds(0.5f);
+        }
+        _walking = null;
     }
 }
