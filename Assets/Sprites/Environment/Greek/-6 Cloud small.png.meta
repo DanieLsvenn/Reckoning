@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 98a44ff2ff9a9754c9b92721b501c0f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1922878793074158910
+    second: -6 Cloud small_0
+  - first:
+      213: -3666193336678505507
+    second: -6 Cloud small_1
+  - first:
+      213: -2845598146070253220
+    second: -6 Cloud small_2
+  - first:
+      213: -8934313839696068346
+    second: -6 Cloud small_3
+  - first:
+      213: 3103363981318329142
+    second: -6 Cloud small_4
+  - first:
+      213: -4788813470932386108
+    second: -6 Cloud small_5
+  - first:
+      213: 5463418524999047560
+    second: -6 Cloud small_6
+  - first:
+      213: -839556141705225683
+    second: -6 Cloud small_7
+  - first:
+      213: -2432716757024163354
+    second: -6 Cloud small_8
+  - first:
+      213: 7447923660878382658
+    second: -6 Cloud small_9
+  - first:
+      213: -274333841112092494
+    second: -6 Cloud small_10
+  - first:
+      213: 6830925740861058588
+    second: -6 Cloud small_11
+  - first:
+      213: -8295132456560684607
+    second: -6 Cloud small_12
+  - first:
+      213: 620371056985486457
+    second: -6 Cloud small_13
+  - first:
+      213: -5537563897936686176
+    second: -6 Cloud small_14
+  - first:
+      213: 1538703787761856506
+    second: -6 Cloud small_15
+  - first:
+      213: -5499355516677383730
+    second: -6 Cloud small_16
+  - first:
+      213: 3961281844641275582
+    second: -6 Cloud small_17
+  - first:
+      213: -294807873960655240
+    second: -6 Cloud small_18
+  - first:
+      213: 3260138729423341136
+    second: -6 Cloud small_19
+  - first:
+      213: 8954955384134086490
+    second: -6 Cloud small_20
+  - first:
+      213: -5622616564655527058
+    second: -6 Cloud small_21
+  - first:
+      213: 7459916984122205067
+    second: -6 Cloud small_22
+  - first:
+      213: 6784021822209776565
+    second: -6 Cloud small_23
+  - first:
+      213: 173349525760063128
+    second: -6 Cloud small_24
+  - first:
+      213: 5472096971933196148
+    second: -6 Cloud small_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: -6 Cloud small_0
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 777
+        width: 115
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d215f03107faa10800000000000000
+      internalID: 1922878793074158910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_1
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 785
+        width: 123
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3af59a5901f1dc0800000000000000
+      internalID: -3666193336678505507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_2
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 720
+        width: 147
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51f8f110976288d0800000000000000
+      internalID: -2845598146070253220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_3
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 578
+        width: 351
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6014f0916e0f20480800000000000000
+      internalID: -8934313839696068346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 640
+        width: 259
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6339833491d511b20800000000000000
+      internalID: 3103363981318329142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_5
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 639
+        width: 106
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce38793587ba8db0800000000000000
+      internalID: -4788813470932386108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_6
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 647
+        width: 259
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8895bd9b336f1db40800000000000000
+      internalID: 5463418524999047560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_7
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 551
+        width: 147
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a99a4232c4954f0800000000000000
+      internalID: -839556141705225683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_8
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 487
+        width: 139
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e93f62aff04d3ed0800000000000000
+      internalID: -2432716757024163354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_9
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 533
+        width: 115
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24602e8db175c5760800000000000000
+      internalID: 7447923660878382658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 488
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b035a233de513cf0800000000000000
+      internalID: -274333841112092494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_11
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 479
+        width: 99
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e681ff4c25cce50800000000000000
+      internalID: 6830925740861058588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_12
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 327
+        width: 182
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c113e1faf4c1ec80800000000000000
+      internalID: -8295132456560684607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_13
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 313
+        width: 269
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974bd8080300c9800800000000000000
+      internalID: 620371056985486457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_14
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 332
+        width: 319
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3d47e59fe9623b0800000000000000
+      internalID: -5537563897936686176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_15
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 408
+        width: 75
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: affe71c41f29a5510800000000000000
+      internalID: 1538703787761856506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_16
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 140
+        width: 259
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec91cde5b4d5ea3b0800000000000000
+      internalID: -5499355516677383730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_17
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 199
+        width: 107
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe1c0599dc49f630800000000000000
+      internalID: 3961281844641275582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_18
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 215
+        width: 67
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8764693fcc1a8ebf0800000000000000
+      internalID: -294807873960655240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_19
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 127
+        width: 275
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05685c5c6e65e3d20800000000000000
+      internalID: 3260138729423341136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_20
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 228
+        width: 198
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fa8caf974664c70800000000000000
+      internalID: 8954955384134086490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_21
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 187
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6bea7b360478f1b0800000000000000
+      internalID: -5622616564655527058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_22
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 167
+        width: 75
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83e18409f2f68760800000000000000
+      internalID: 7459916984122205067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_23
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 51
+        width: 131
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbdf4d67efa52e50800000000000000
+      internalID: 6784021822209776565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_24
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 82
+        width: 115
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89639e8a97cd76200800000000000000
+      internalID: 173349525760063128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: -6 Cloud small_25
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 23
+        width: 123
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f919c143bc0fb40800000000000000
+      internalID: 5472096971933196148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      -6 Cloud small_0: 1922878793074158910
+      -6 Cloud small_1: -3666193336678505507
+      -6 Cloud small_10: -274333841112092494
+      -6 Cloud small_11: 6830925740861058588
+      -6 Cloud small_12: -8295132456560684607
+      -6 Cloud small_13: 620371056985486457
+      -6 Cloud small_14: -5537563897936686176
+      -6 Cloud small_15: 1538703787761856506
+      -6 Cloud small_16: -5499355516677383730
+      -6 Cloud small_17: 3961281844641275582
+      -6 Cloud small_18: -294807873960655240
+      -6 Cloud small_19: 3260138729423341136
+      -6 Cloud small_2: -2845598146070253220
+      -6 Cloud small_20: 8954955384134086490
+      -6 Cloud small_21: -5622616564655527058
+      -6 Cloud small_22: 7459916984122205067
+      -6 Cloud small_23: 6784021822209776565
+      -6 Cloud small_24: 173349525760063128
+      -6 Cloud small_25: 5472096971933196148
+      -6 Cloud small_3: -8934313839696068346
+      -6 Cloud small_4: 3103363981318329142
+      -6 Cloud small_5: -4788813470932386108
+      -6 Cloud small_6: 5463418524999047560
+      -6 Cloud small_7: -839556141705225683
+      -6 Cloud small_8: -2432716757024163354
+      -6 Cloud small_9: 7447923660878382658
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
