@@ -4,12 +4,16 @@ using UnityEngine.Audio;
 
 public enum SoundEffectType
 {
-    ConcreteStepping
+    ConcreteStepping,
+    DialogueInteract,
+    DialogueTick,
+    DialogueChoice,
 }
 
 public enum SoundTrackList
 {
-    MainMenu
+    MainMenu,
+    Philosophers
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

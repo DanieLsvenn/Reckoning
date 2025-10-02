@@ -150,8 +150,21 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 52d3bb252ad71ec47aa0b575cfa9c462, type: 3}
     - {fileID: 8300000, guid: c164a830e1e7fb54ebc8dbc2707a40c5, type: 3}
     - {fileID: 8300000, guid: 63b066f0ef741544f82aa2c53d4fb3b9, type: 3}
+  - SoundName: DialogueInteract
+    sounds:
+    - {fileID: 8300000, guid: dde7826cef7a5f14fa5adb2fadf9b514, type: 3}
+  - SoundName: DialogueTick
+    sounds:
+    - {fileID: 8300000, guid: 91e7720ec9534b8498dc5712de6db207, type: 3}
+  - SoundName: DialogueChoice
+    sounds:
+    - {fileID: 8300000, guid: b4a9540c962e1e64693d61cf792c91cf, type: 3}
+    - {fileID: 8300000, guid: 410c114cc9fe0114eaa859bc0a189abc, type: 3}
+    - {fileID: 8300000, guid: 7c9598e82179fac489e7b34b53ea1626, type: 3}
   soundTracks:
   - SoundTrackName: MainMenu
     soundTracks: {fileID: 8300000, guid: 41434a070f5964d42b7380e90b9ca4d2, type: 3}
+  - SoundTrackName: Philosophers
+    soundTracks: {fileID: 8300000, guid: a0e10bb915b2c684aa4c952a37c714b7, type: 3}
   musicGroup: {fileID: 6305826975566204033, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}
   sfxGroup: {fileID: 4029326300383797461, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}
