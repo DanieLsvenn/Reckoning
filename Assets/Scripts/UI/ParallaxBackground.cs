@@ -11,12 +11,12 @@ public class ParallaxBackground : MonoBehaviour
 
     void Start()
     {
-        startPos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        startPos = transform.position.x;  
         if (useBoxCollider)
         {
             length = GetComponent<BoxCollider>().bounds.size.x;
         }
+        else length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     void Update()

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 08f7f4067d1c0f840a08dfafdfaa0fce
+guid: 0e19d21bc689938418a3fc207be3d136
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2904835212358642837
-    second: +4, -1 Houses_0
-  - first:
-      213: 8589002940627661602
-    second: +4, -1 Houses_1
+      213: -4910088520043721169
+    second: a_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: +4, -1 Houses_0
+      name: a_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 786
-        height: 390
+        y: 0
+        width: 1957
+        height: 1057
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b63115cc3c3ffa7d0800000000000000
-      internalID: -2904835212358642837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: +4, -1 Houses_1
-      rect:
-        serializedVersion: 2
-        x: 848
-        y: 33
-        width: 698
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 223b5e20ba4423770800000000000000
-      internalID: 8589002940627661602
+      spriteID: f2e021b718cdbdbb0800000000000000
+      internalID: -4910088520043721169
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      +4, -1 Houses_0: -2904835212358642837
-      +4, -1 Houses_1: 8589002940627661602
+      a_0: -4910088520043721169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
