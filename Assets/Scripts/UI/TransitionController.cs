@@ -37,18 +37,46 @@ public class TransitionController : MonoBehaviour
     {
         if (backgrounds == null) return;
 
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         foreach (var bg in backgrounds)
         {
             // Draw trigger point
-            Gizmos.DrawSphere(bg.triggerPoint, 0.1f);
+            Gizmos.DrawSphere(bg.triggerPoint, 0.3f);
 
             // Draw trigger radius
-            Gizmos.color = new Color(1f, 0.5f, 0f, 0.25f); // orange with transparency
+            Gizmos.color = Color.white; // orange with transparency
             Gizmos.DrawWireSphere(bg.triggerPoint, triggerRadius);
 
-            Gizmos.color = Color.yellow; // reset color for next point
+            Gizmos.color = Color.red; // reset color for next point
         }
+
+        Gizmos.DrawLine(new Vector2(402, 0), new Vector2(404, -1));
+        Gizmos.DrawLine(new Vector2(404, -1), new Vector2(406, -1));
+        Gizmos.DrawLine(new Vector2(408, 0), new Vector2(406, -1));
+
+        Gizmos.DrawLine(new Vector2(402, 0), new Vector2(404, -3));
+        Gizmos.DrawLine(new Vector2(404, -3), new Vector2(406, -3));
+        Gizmos.DrawLine(new Vector2(408, 0), new Vector2(406, -3));
+
+        Gizmos.color = Color.white;
+
+        Gizmos.DrawLine(new Vector2(404, -1), new Vector2(404.25f, -1.5f));
+        Gizmos.DrawLine(new Vector2(404.25f, -1.5f), new Vector2(404.5f, -1f));
+        Gizmos.DrawLine(new Vector2(404.5f, -1f), new Vector2(404.75f, -1.5f));
+        Gizmos.DrawLine(new Vector2(404.75f, -1.5f), new Vector2(405f, -1f));
+        Gizmos.DrawLine(new Vector2(405f, -1f), new Vector2(405.25f, -1.5f));
+        Gizmos.DrawLine(new Vector2(405.25f, -1.5f), new Vector2(405.5f, -1f));
+        Gizmos.DrawLine(new Vector2(405.5f, -1f), new Vector2(405.75f, -1.5f));
+        Gizmos.DrawLine(new Vector2(405.75f, -1.5f), new Vector2(406f, -1f));
+
+        Gizmos.DrawLine(new Vector2(404, -3), new Vector2(404.25f, -2.5f));
+        Gizmos.DrawLine(new Vector2(404.25f, -2.5f), new Vector2(404.5f, -3f));
+        Gizmos.DrawLine(new Vector2(404.5f, -3f), new Vector2(404.75f, -2.5f));
+        Gizmos.DrawLine(new Vector2(404.75f, -2.5f), new Vector2(405f, -3f));
+        Gizmos.DrawLine(new Vector2(405f, -3f), new Vector2(405.25f, -2.5f));
+        Gizmos.DrawLine(new Vector2(405.25f, -2.5f), new Vector2(405.5f, -3f));
+        Gizmos.DrawLine(new Vector2(405.5f, -3f), new Vector2(405.75f, -2.5f));
+        Gizmos.DrawLine(new Vector2(405.75f, -2.5f), new Vector2(406f, -3f));
     }
 }
 
