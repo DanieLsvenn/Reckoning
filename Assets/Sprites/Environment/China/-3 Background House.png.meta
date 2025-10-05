@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 11bbf1b6b4237a04f8d3056e19e8ae2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7799260243932443944
+    second: -3 Background House_0
+  - first:
+      213: -6799464841145352078
+    second: -3 Background House_1
+  - first:
+      213: -2856450509768451316
+    second: -3 Background House_2
+  - first:
+      213: 6252745464171646984
+    second: -3 Background House_3
+  - first:
+      213: 1724604039341910284
+    second: -3 Background House_4
+  - first:
+      213: -8571340840885644387
+    second: -3 Background House_5
+  - first:
+      213: -444577317532429592
+    second: -3 Background House_6
+  - first:
+      213: 9038724834409245371
+    second: -3 Background House_7
+  - first:
+      213: -5257405747845168461
+    second: -3 Background House_8
+  - first:
+      213: 5632605986494518060
+    second: -3 Background House_9
+  - first:
+      213: 2525909653778748845
+    second: -3 Background House_10
+  - first:
+      213: -7332507398370174468
+    second: -3 Background House_11
+  - first:
+      213: -7621121003872360427
+    second: -3 Background House_12
+  - first:
+      213: -487645977319659946
+    second: -3 Background House_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: -3 Background House_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 50
+        width: 991
+        height: 766
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da8491612673c390800000000000000
+      internalID: -7799260243932443944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1c82b9d8a6ce14a4d9552b2f9724870e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      -3 Background House_0: -7799260243932443944
+      -3 Background House_1: -6799464841145352078
+      -3 Background House_10: 2525909653778748845
+      -3 Background House_11: -7332507398370174468
+      -3 Background House_12: -7621121003872360427
+      -3 Background House_13: -487645977319659946
+      -3 Background House_2: -2856450509768451316
+      -3 Background House_3: 6252745464171646984
+      -3 Background House_4: 1724604039341910284
+      -3 Background House_5: -8571340840885644387
+      -3 Background House_6: -444577317532429592
+      -3 Background House_7: 9038724834409245371
+      -3 Background House_8: -5257405747845168461
+      -3 Background House_9: 5632605986494518060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

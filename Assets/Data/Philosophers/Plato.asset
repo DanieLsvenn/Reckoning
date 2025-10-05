@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   philosopherId: plato
   displayName: Plato
-  portrait: {fileID: -4874306897608974326, guid: 6dd6b3bcffff85348bf38897aabd3f4d, type: 3}
+  portrait: {fileID: 21300000, guid: 6dd6b3bcffff85348bf38897aabd3f4d, type: 3}
   inkJson: {fileID: 4900000, guid: c3945e1c96b78364f9d9e98cb190a0cf, type: 3}

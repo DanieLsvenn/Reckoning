@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e73fc09872d434880458cd849ec2e5, type: 3}
+  m_Name: John Stuart Mill
+  m_EditorClassIdentifier: 
+  philosopherId: mill
+  displayName: John Stuart Mill
+  portrait: {fileID: 21300000, guid: df42a60b3223f8248ad927b39b213c70, type: 3}
+  inkJson: {fileID: 4900000, guid: d6491e1edacce0e41981d426b939602d, type: 3}
