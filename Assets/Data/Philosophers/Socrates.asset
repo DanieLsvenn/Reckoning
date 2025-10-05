@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   philosopherId: socrates
   displayName: Socrates
-  portrait: {fileID: -6564107741902094806, guid: 8bd480dd6c9cd75488ebc09de0c366c9, type: 3}
+  portrait: {fileID: 21300000, guid: 5541956f861f07043978deb55b00cc4f, type: 3}
   inkJson: {fileID: 4900000, guid: cbc595cb25bffa448a995bdff904cb54, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   philosopherId: aristotle
   displayName: Aristotle
-  portrait: {fileID: 7964513208400920085, guid: 098076b8f2b702b4eaa6485192068c93, type: 3}
+  portrait: {fileID: 21300000, guid: 58839a623eaf883449824c1b8f20def6, type: 3}
   inkJson: {fileID: 4900000, guid: 50c0926784afdf54295d76c2a74cc6c1, type: 3}

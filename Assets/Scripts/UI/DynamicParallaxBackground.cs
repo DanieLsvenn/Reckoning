@@ -7,7 +7,7 @@ public class DynamicParallaxBackground : MonoBehaviour
 {
     private float startPos, length;
     public GameObject cam;
-    public float parallaxEffect = 0.5f;   // 0 = moves with cam, 1 = static
+    public float parallaxEffect = 0.5f; // 0 = moves with cam, 1 = static
     [Tooltip("Left <- Negative | Positive -> Right")]
     public float driftSpeed = -0.1f;       // Cloud drift speed
     public bool useBoxCollider = false;
