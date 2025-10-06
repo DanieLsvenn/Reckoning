@@ -13,6 +13,7 @@ public class VoidBackgroundTrigger : MonoBehaviour
 
     [SerializeField] private SoundTrackList SoundTrack;
     [SerializeField] private float soundtrackDelay = 0.5f;
+    private bool activated;
 
     private Animator voidAnimator;
 
@@ -33,8 +34,9 @@ public class VoidBackgroundTrigger : MonoBehaviour
         if (player == null) return;
 
         float distance = Vector2.Distance(player.position, triggerPosition);
-        if (distance <= triggerRadius)
+        if (distance <= triggerRadius && activated == false)
         {
+            activated = true;
             voidAnimator.SetTrigger("voidAnimationTrigger");
             if (SoundTrackPlayer.IsInitialized)
                 SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack, soundtrackDelay);

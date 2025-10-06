@@ -8,6 +8,7 @@ public enum SoundEffectType
     DialogueInteract,
     DialogueTick,
     DialogueChoice,
+    HeartBeat,
 }
 
 public enum SoundTrackList
@@ -16,7 +17,8 @@ public enum SoundTrackList
     Greek,
     China,
     Brutalist,
-    Void
+    Void,
+    Blank
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

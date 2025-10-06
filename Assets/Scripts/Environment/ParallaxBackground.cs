@@ -1,45 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    private float startPos, length;
+    private float startPosX, length;
     public GameObject cam;
     public float parallaxEffect; // The speed at which the background should move relative to the camera
     public bool useBoxCollider = false;
 
+    [Header("Floating Effect")]
+    [SerializeField] private bool enableFloating = false;
+    [Tooltip("How high/low it moves")]
+    [SerializeField] private float floatAmplitude = 0.5f;
+    [Tooltip("How fast it moves")]
+    [SerializeField] private float floatFrequency = 1f;
+
+    private float startPosY;
+
     void Start()
     {
-        startPos = transform.position.x;  
+        startPosX = transform.position.x;
+        startPosY = transform.position.y;
+
         if (useBoxCollider)
-        {
             length = GetComponent<BoxCollider>().bounds.size.x;
-        }
-        else length = GetComponent<SpriteRenderer>().bounds.size.x;
+        else
+            length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     void FixedUpdate()
     {
-        UpdateParallax();        
+        UpdateParallax();
     }
 
-    public void UpdateParallax()
+    void UpdateParallax()
     {
-        // Calculate distance background move based on cam movement
-        float distance = cam.transform.position.x * parallaxEffect; // 0 = move with cam || 1 = won't move || 0.5 = half
+        float distance = cam.transform.position.x * parallaxEffect;
         float movement = cam.transform.position.x * (1 - parallaxEffect);
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
 
-        // if background has reached the end of its length adjust its position for infinite scrolling
-        if (movement > startPos + length)
+        // Horizontal parallax
+        float newX = startPosX + distance;
+
+        // Vertical floating
+        float newY = startPosY;
+        if (enableFloating)
         {
-            startPos += length;
+            newY += Mathf.Sin(Time.time * floatFrequency) * floatAmplitude;
         }
-        else if (movement < startPos - length)
-        {
-            startPos -= length;
-        }
+
+        transform.position = new Vector3(newX, newY, transform.position.z);
+
+        // Infinite scrolling
+        if (movement > startPosX + length)
+            startPosX += length;
+        else if (movement < startPosX - length)
+            startPosX -= length;
     }
 }

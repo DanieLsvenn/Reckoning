@@ -161,6 +161,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b4a9540c962e1e64693d61cf792c91cf, type: 3}
     - {fileID: 8300000, guid: 410c114cc9fe0114eaa859bc0a189abc, type: 3}
     - {fileID: 8300000, guid: 7c9598e82179fac489e7b34b53ea1626, type: 3}
+  - SoundName: HeartBeat
+    sounds:
+    - {fileID: 8300000, guid: 61cfb86884fabac4faaff85f84f32240, type: 3}
   soundTracks:
   - SoundTrackName: MainMenu
     soundTracks: {fileID: 8300000, guid: adda4e1443689a84a8d84cdd036165dc, type: 3}
@@ -172,6 +175,8 @@ MonoBehaviour:
     soundTracks: {fileID: 8300000, guid: dcf52f4af6135de429864f7dd4071ea5, type: 3}
   - SoundTrackName: Void
     soundTracks: {fileID: 8300000, guid: a0e10bb915b2c684aa4c952a37c714b7, type: 3}
+  - SoundTrackName: Blank
+    soundTracks: {fileID: 8300000, guid: d2c4d206da2aa5e44aaf91961eafaa55, type: 3}
   musicSource: {fileID: 8344467730207989545}
   musicGroup: {fileID: 6305826975566204033, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}
   sfxGroup: {fileID: 4029326300383797461, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}

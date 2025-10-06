@@ -28,6 +28,8 @@ public class TransitionController : MonoBehaviour
             {
                 if (bg.fromBackground != null) bg.fromBackground.SetActive(false);
                 if (bg.toBackground != null) bg.toBackground.SetActive(true);
+                if (SoundTrackPlayer.IsInitialized)
+                    SoundTrackPlayer.Instance.SetSoundTrack(bg.SoundTrack, bg.soundtrackDelay);
             }
         }
     }
@@ -86,4 +88,6 @@ public class TransitionBackground
     public GameObject fromBackground;
     public GameObject toBackground;
     public Vector2 triggerPoint;
+    public SoundTrackList SoundTrack;
+    public float soundtrackDelay = 0f;
 }
