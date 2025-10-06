@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OpeningScene.unity
     guid: a9f08e6c1f7c46a4485b7c36e240010f
+  - enabled: 1
+    path: Assets/Scenes/Ending_Changemaker.unity
+    guid: f6ba6d410efd97f42863cdf286f8c1c4
+  - enabled: 1
+    path: Assets/Scenes/Ending_Sage.unity
+    guid: 21ebab45d73b3d94fadb73bcb1b35d5c
+  - enabled: 1
+    path: Assets/Scenes/Ending_Wanderer.unity
+    guid: 65e3637049beb504c8e1d9eca9931106
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
