@@ -10,7 +10,7 @@ VAR pessimism = 0
 
 === opening_scene ===
 The Agora fades into mist. The crowd disperses, leaving only us sitting face to face. The space feels both dreamlike and heavy, each word anchoring itself to the soul. #speaker:socrates
-Socrates: Dark friend, I see you sitting like a rotting stone. So tell me, what do you live for? What is the purpose of your existence? #speaker:socrates
+Socrates: Dark friend, I see regrets in those eyes. Hard not to ask what those eyes have seen, have lived for - Tell me, what was the purpose of your existence? #speaker:socrates
 
 * [There's no other choice] I live because there's no other choice. Like a mangy dog on a chain, breathing means being dragged along. Purpose? I'm just waiting for the rope to rot and break. #moral:pessimism:+2 #moral:materialism:+1 #moral:chaos:+1
     ~ pessimism += 2
