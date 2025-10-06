@@ -6,7 +6,6 @@ public class VoidBackgroundTrigger : MonoBehaviour
     [SerializeField] private float triggerRadius = 0.5f; // how close the player must be
     [SerializeField] private Vector2 triggerPosition;
 
-
     [SerializeField] private GameObject voidBackground;
 
     [SerializeField] private SoundTrackList SoundTrack;
@@ -39,6 +38,7 @@ public class VoidBackgroundTrigger : MonoBehaviour
             if (SoundTrackPlayer.IsInitialized)
                 SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack, soundtrackDelay);
         }
+            
     }
 
     void OnDrawGizmos()
