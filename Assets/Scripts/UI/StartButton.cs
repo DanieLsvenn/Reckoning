@@ -27,10 +27,9 @@ public class StartButton : MonoBehaviour
 
     public void OnStartButtonClick()
     {
+        StartCoroutine(SoundTrackPlayer.Instance.FadeOut());
         if (AudioManager.IsInitialized)
-        {
             AudioManager.Instance.PlaySound(SoundEffectType.MenuButton);
-        }
         StartCoroutine(ChangeScene());
     }
 

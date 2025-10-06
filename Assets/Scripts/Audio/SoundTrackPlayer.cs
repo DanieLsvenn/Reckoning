@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundTrackPlayer : MonoBehaviour
 {
@@ -65,13 +66,14 @@ public class SoundTrackPlayer : MonoBehaviour
         AudioManager.Instance.musicSource.Play();
 
         // Fade in
+        float endVolume = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 1f);
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
         {
-            AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, startVolume, t / fadeTime);
+            AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, endVolume, t / fadeTime);
             yield return null;
         }
+        AudioManager.Instance.musicSource.volume = endVolume;
 
-        AudioManager.Instance.musicSource.volume = startVolume;
 
         // Update the soundtrack reference after transition
         soundTrack = newSoundTrack;
@@ -89,6 +91,7 @@ public class SoundTrackPlayer : MonoBehaviour
             AudioManager.Instance.musicSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeTime);
             yield return null;
         }
+        AudioManager.Instance.musicSource.volume = 0;
     }
 
     private IEnumerator FadeIn()
@@ -96,15 +99,32 @@ public class SoundTrackPlayer : MonoBehaviour
         if (AudioManager.Instance == null) yield break;
 
         float fadeTime = 1f;
-        float startVolume = AudioManager.Instance.musicSource.volume;
+        float endVolume = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 1f);
 
         AudioManager.Instance.PlaySoundTrack(soundTrack);
         AudioManager.Instance.musicSource.volume = 0f;
 
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
         {
-            AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, startVolume, t / fadeTime);
+            AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, endVolume, t / fadeTime);
             yield return null;
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Only fade in if volume was zero (previous scene faded out)
+        if (AudioManager.Instance.musicSource.volume <= 0.01f)
+            StartCoroutine(FadeIn());
     }
 }

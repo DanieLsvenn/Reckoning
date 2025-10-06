@@ -301,6 +301,10 @@ public class EndingTrigger : MonoBehaviour
         }
         
         Debug.Log($"[EndingTrigger] Starting {fadeOutDuration}-second white fade-out...");
+        // Playing ambience sfx
+        StartCoroutine(SoundTrackPlayer.Instance.FadeOut());
+        if (AudioManager.IsInitialized)
+            AudioManager.Instance.PlaySound(SoundEffectType.EndingScreenFadeIn);
         
         // Disable player movement during fade by setting a static flag that PlayerController can check
         EndingTrigger.IsFadingOut = true;
