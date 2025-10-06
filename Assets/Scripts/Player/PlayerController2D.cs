@@ -63,22 +63,10 @@ public class PlayerController2D : MonoBehaviour
             spriteRenderer.flipX = spriteFacesRight ? false : true;
         }
 
-#if ENABLE_INPUT_SYSTEM
         keyboard = Keyboard.current;
-        if (logInput)
-            Debug.Log($"[PlayerController2D] Awake. New Input System enabled. Keyboard available: {keyboard != null}");
-#else
-        if (logInput)
-            Debug.Log("[PlayerController2D] Awake. Using legacy Input (OLD Input Manager).");
-#endif
-        if (logInput)
-        {
-            Debug.unityLogger.logEnabled = true;
-            Debug.LogWarning("[PlayerController2D] Console test: warning should be visible. If you don't see this, check Console filters.");
-        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Value in [-1, +1] from input
         float input = 0f;
