@@ -13,7 +13,9 @@ public enum SoundEffectType
 public enum SoundTrackList
 {
     MainMenu,
-    Philosophers,
+    Greek,
+    China,
+    Brutalist,
     Void
 }
 
@@ -23,10 +25,10 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [SerializeField] AudioMixer mixer;
-    [SerializeField] private SoundList[] soundList;
-    [SerializeField] private SoundTrack[] soundTracks;
+    public SoundList[] soundList;
+    public SoundTrack[] soundTracks;
 
-    private AudioSource musicSource;
+    public AudioSource musicSource;
     private AudioSource sfxSource;
 
     // Add this static property to check if the instance is ready
