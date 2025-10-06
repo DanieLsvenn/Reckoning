@@ -164,6 +164,9 @@ MonoBehaviour:
   - SoundName: HeartBeat
     sounds:
     - {fileID: 8300000, guid: 61cfb86884fabac4faaff85f84f32240, type: 3}
+  - SoundName: MenuButton
+    sounds:
+    - {fileID: 8300000, guid: 6ca804906ebd9ba43aecd7a789404782, type: 3}
   soundTracks:
   - SoundTrackName: MainMenu
     soundTracks: {fileID: 8300000, guid: adda4e1443689a84a8d84cdd036165dc, type: 3}
