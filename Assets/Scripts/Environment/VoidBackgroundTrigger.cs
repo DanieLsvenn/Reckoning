@@ -4,8 +4,6 @@ using UnityEngine.UIElements;
 public class VoidBackgroundTrigger : MonoBehaviour
 {
     [SerializeField] private float triggerRadius = 0.5f; // how close the player must be
-    [SerializeField] private Vector2 changeColorTrigger;
-    [SerializeField] private Vector2 endChangeColorTrigger;
     [SerializeField] private Vector2 triggerPosition;
 
 
