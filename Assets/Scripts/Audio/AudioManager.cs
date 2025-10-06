@@ -10,7 +10,8 @@ public enum SoundEffectType
     DialogueChoice,
     MenuButton,
     HeartBeat,
-    EndingScreenFadeIn
+    EndingScreenFadeIn,
+    CutSceneDialogueContinue
 }
 
 public enum SoundTrackList

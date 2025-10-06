@@ -26,6 +26,8 @@ public class CutsceneDialogueManager : MonoBehaviour
     {
         while (story.canContinue)
         {
+            if (AudioManager.IsInitialized)
+                AudioManager.Instance.PlaySound(SoundEffectType.CutSceneDialogueContinue);
             string text = story.Continue().Trim();
             dialogueText.text = text;
             yield return new WaitForSeconds(autoAdvanceDelay);
