@@ -63,7 +63,7 @@ public class PlayerController2D : MonoBehaviour
             spriteRenderer.flipX = spriteFacesRight ? false : true;
         }
 
-        keyboard = Keyboard.current;
+        // Don't store keyboard reference here - get it fresh each time in FixedUpdate
     }
 
     private void FixedUpdate()
@@ -73,19 +73,27 @@ public class PlayerController2D : MonoBehaviour
         bool leftNow = false, rightNow = false;
         bool ePressedFrame = false;
 
+#if ENABLE_INPUT_SYSTEM
+        // Get fresh keyboard reference once per frame to avoid stale references after scene transitions
+        var currentKeyboard = Keyboard.current;
+#endif
+
         // Don't process movement input if dialogue is active or ending is fading out
         if (!DialogueRunner.IsDialogueActive && !EndingTrigger.IsFadingOut)
         {
 #if ENABLE_INPUT_SYSTEM
-            if (keyboard != null)
+            if (currentKeyboard != null)
             {
-                if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+                if (logInput && Time.frameCount % 60 == 0) // Debug every 60 frames
+                    Debug.Log($"[PlayerController2D] Using Input System - Keyboard available");
+
+                if (currentKeyboard.aKey.isPressed || currentKeyboard.leftArrowKey.isPressed)
                 {
                     input -= 1f; leftNow = true;
                     if (_walking == null)
                         _walking = StartCoroutine(WalkingSFX());
                 }
-                if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+                if (currentKeyboard.dKey.isPressed || currentKeyboard.rightArrowKey.isPressed)
                 {
                     input += 1f; rightNow = true;
                     if (_walking == null)
@@ -93,8 +101,10 @@ public class PlayerController2D : MonoBehaviour
                 }
             }
             else
-#endif
             {
+                if (logInput && Time.frameCount % 60 == 0) // Debug every 60 frames  
+                    Debug.Log($"[PlayerController2D] Input System enabled but keyboard is null - falling back to legacy");
+#endif
                 input = Input.GetAxis("Horizontal");
                 leftNow = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
                 rightNow = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
@@ -103,7 +113,9 @@ public class PlayerController2D : MonoBehaviour
                     if (leftNow) input -= 1f;
                     if (rightNow) input += 1f;
                 }
+#if ENABLE_INPUT_SYSTEM
             }
+#endif
         }
 
         // Move in world space (only if dialogue is not active and not fading out)
@@ -126,7 +138,7 @@ public class PlayerController2D : MonoBehaviour
 
         // Interact
 #if ENABLE_INPUT_SYSTEM
-        if (keyboard != null && keyboard.eKey.wasPressedThisFrame)
+        if (currentKeyboard != null && currentKeyboard.eKey.wasPressedThisFrame)
         {
             if (logInput) Debug.Log("[PlayerController2D] E pressed via Input System (Keyboard.eKey).");
             ePressedFrame = true;
@@ -144,9 +156,14 @@ public class PlayerController2D : MonoBehaviour
         // Debug: A/D press-release and input value (throttled)
         if (logInput)
         {
-            if (leftNow && !_leftPressedPrev) Debug.Log($"[PlayerController2D] A/Left pressed (backend={(keyboard!=null?"InputSystem":"Legacy")}).");
+#if ENABLE_INPUT_SYSTEM
+            bool usingInputSystem = currentKeyboard != null;
+#else
+            bool usingInputSystem = false;
+#endif
+            if (leftNow && !_leftPressedPrev) Debug.Log($"[PlayerController2D] A/Left pressed (backend={(usingInputSystem?"InputSystem":"Legacy")}).");
             if (!leftNow && _leftPressedPrev) Debug.Log("[PlayerController2D] A/Left released.");
-            if (rightNow && !_rightPressedPrev) Debug.Log($"[PlayerController2D] D/Right pressed (backend={(keyboard!=null?"InputSystem":"Legacy")}).");
+            if (rightNow && !_rightPressedPrev) Debug.Log($"[PlayerController2D] D/Right pressed (backend={(usingInputSystem?"InputSystem":"Legacy")}).");
             if (!rightNow && _rightPressedPrev) Debug.Log("[PlayerController2D] D/Right released.");
 
             _logTimer += Time.deltaTime;
@@ -155,7 +172,7 @@ public class PlayerController2D : MonoBehaviour
                 _logTimer = 0f;
                 if (Mathf.Abs(input - _lastInput) > 0.01f)
                 {
-                    Debug.Log($"[PlayerController2D] inputX={input:0.00} (backend={(keyboard!=null?"InputSystem":"Legacy")})");
+                    Debug.Log($"[PlayerController2D] inputX={input:0.00} (backend={(usingInputSystem?"InputSystem":"Legacy")})");
                     _lastInput = input;
                 }
             }
@@ -232,11 +249,23 @@ public class PlayerController2D : MonoBehaviour
     // Audio stuffs
     private IEnumerator WalkingSFX()
     {
-        while (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed || keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+#if ENABLE_INPUT_SYSTEM
+        var currentKeyboard = Keyboard.current;
+        while (currentKeyboard != null && (currentKeyboard.aKey.isPressed || currentKeyboard.leftArrowKey.isPressed || currentKeyboard.dKey.isPressed || currentKeyboard.rightArrowKey.isPressed))
         {
-        AudioManager.Instance.PlaySound(SoundEffectType.ConcreteStepping);
+            AudioManager.Instance.PlaySound(SoundEffectType.ConcreteStepping);
+            yield return new WaitForSeconds(0.5f);
+            // Refresh keyboard reference in case it changed during the wait
+            currentKeyboard = Keyboard.current;
+        }
+#else
+        // Legacy input fallback for walking sound
+        while (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            AudioManager.Instance.PlaySound(SoundEffectType.ConcreteStepping);
             yield return new WaitForSeconds(0.5f);
         }
+#endif
         _walking = null;
     }
 }
