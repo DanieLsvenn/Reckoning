@@ -161,6 +161,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b4a9540c962e1e64693d61cf792c91cf, type: 3}
     - {fileID: 8300000, guid: 410c114cc9fe0114eaa859bc0a189abc, type: 3}
     - {fileID: 8300000, guid: 7c9598e82179fac489e7b34b53ea1626, type: 3}
+  - SoundName: HeartBeat
+    sounds:
+    - {fileID: 8300000, guid: 61cfb86884fabac4faaff85f84f32240, type: 3}
   - SoundName: MenuButton
     sounds:
     - {fileID: 8300000, guid: 6ca804906ebd9ba43aecd7a789404782, type: 3}
@@ -175,6 +178,8 @@ MonoBehaviour:
     soundTracks: {fileID: 8300000, guid: dcf52f4af6135de429864f7dd4071ea5, type: 3}
   - SoundTrackName: Void
     soundTracks: {fileID: 8300000, guid: a0e10bb915b2c684aa4c952a37c714b7, type: 3}
+  - SoundTrackName: Blank
+    soundTracks: {fileID: 8300000, guid: d2c4d206da2aa5e44aaf91961eafaa55, type: 3}
   - SoundTrackName: Ending_ChangeMaker
     soundTracks: {fileID: 8300000, guid: 1a542eea3ef94c545b1517c0d72dcc48, type: 3}
   - SoundTrackName: Ending_Sage

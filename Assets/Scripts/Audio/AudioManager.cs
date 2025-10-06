@@ -8,7 +8,8 @@ public enum SoundEffectType
     DialogueInteract,
     DialogueTick,
     DialogueChoice,
-    MenuButton
+    MenuButton,
+    HeartBeat,
 }
 
 public enum SoundTrackList
@@ -18,6 +19,7 @@ public enum SoundTrackList
     China,
     Brutalist,
     Void,
+    Blank,
     Ending_ChangeMaker,
     Ending_Sage,
     Ending_Wanderer
