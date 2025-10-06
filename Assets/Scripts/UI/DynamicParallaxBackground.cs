@@ -23,7 +23,7 @@ public class DynamicParallaxBackground : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Parallax effect from camera
         float distance = cam.transform.position.x * parallaxEffect;
