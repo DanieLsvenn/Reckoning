@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1746,8 +1746,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.4
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &135613618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2375,8 +2373,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.3
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &210160995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3612,8 +3608,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 1
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &329709194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4585,7 +4579,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4826,7 +4820,7 @@ SpriteRenderer:
   m_Size: {x: 20.825085, y: 13.880001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &427295150
@@ -4967,8 +4961,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.73
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &435432426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5996,8 +5988,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 1
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &532629121
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6319,8 +6309,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 1
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &555612291
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6775,8 +6763,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.9
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &586181834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6991,8 +6977,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.35
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &591079573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7427,8 +7411,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.15
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &630345921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7833,7 +7815,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8234,8 +8216,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 1
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &691292385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8706,7 +8686,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -9951,6 +9931,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &837994628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2327991215706294874, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: soundTrack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7099401
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7828991
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 768.95636
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090024757562857030, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719115659967202474, guid: 666df1e62631863409f81b8081442292, type: 3}
+      propertyPath: m_Name
+      value: SoundTrackPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 666df1e62631863409f81b8081442292, type: 3}
 --- !u!1 &843997673
 GameObject:
   m_ObjectHideFlags: 0
@@ -10138,8 +10179,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.6
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &859979239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10615,8 +10654,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.7
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &920978301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10918,8 +10955,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.62
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &950995551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12069,8 +12104,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.69
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &1042758252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13300,8 +13333,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.49
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1164557246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14749,8 +14780,6 @@ MonoBehaviour:
   cam: {fileID: 1796387038}
   parallaxEffect: 0.7
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &1289075198
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14803,7 +14832,7 @@ SpriteRenderer:
   m_Size: {x: 20.825085, y: 13.880001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1289709720
@@ -15661,8 +15690,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: -0.2
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &1344381438
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15998,7 +16025,7 @@ SpriteRenderer:
   m_Size: {x: 20.825085, y: 13.880001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1376995727
@@ -16161,8 +16188,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.5
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1378280518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17551,8 +17576,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.85
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1466749306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18050,8 +18073,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.15
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1517821301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18552,8 +18573,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: -0.5
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1581147365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19029,8 +19048,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.3
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1632224718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20180,7 +20197,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -20518,8 +20535,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.5
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1749316653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21624,8 +21639,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.95
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &1807731437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22573,6 +22586,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1933379415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1057316521971762509, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 268.1709
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -56.67872
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.503685
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561740214302140263, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
 --- !u!1 &1946776603
 GameObject:
   m_ObjectHideFlags: 0
@@ -23387,8 +23457,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.2
   useBoxCollider: 1
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!65 &2076450221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23624,8 +23692,6 @@ MonoBehaviour:
   cam: {fileID: 10880263}
   parallaxEffect: 0.82
   useBoxCollider: 0
-  useSmoothParallax: 0
-  smoothParallax: 50
 --- !u!212 &2086406183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24483,3 +24549,5 @@ SceneRoots:
   - {fileID: 94792252}
   - {fileID: 1457306300}
   - {fileID: 461918391}
+  - {fileID: 1933379415}
+  - {fileID: 837994628}

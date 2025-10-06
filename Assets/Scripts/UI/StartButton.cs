@@ -27,13 +27,9 @@ public class StartButton : MonoBehaviour
 
     public void OnStartButtonClick()
     {
-        // Play button click sound if available
+        StartCoroutine(SoundTrackPlayer.Instance.FadeOut());
         if (AudioManager.IsInitialized)
-        {
-            // Uncomment these if you want sound effects
-            // AudioManager.Instance.PlaySound(SoundEffectType.BUTTONCLICK);
-        }
-
+            AudioManager.Instance.PlaySound(SoundEffectType.MenuButton);
         StartCoroutine(ChangeScene());
     }
 
