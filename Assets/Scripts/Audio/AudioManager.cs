@@ -13,7 +13,8 @@ public enum SoundEffectType
 public enum SoundTrackList
 {
     MainMenu,
-    Philosophers
+    Philosophers,
+    Void
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
