@@ -18,7 +18,7 @@ public enum SoundTrackList
     China,
     Brutalist,
     Void,
-    Blank
+    Blank,
     Ending_ChangeMaker,
     Ending_Sage,
     Ending_Wanderer
