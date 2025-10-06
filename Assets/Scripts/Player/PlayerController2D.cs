@@ -85,45 +85,52 @@ public class PlayerController2D : MonoBehaviour
         bool leftNow = false, rightNow = false;
         bool ePressedFrame = false;
 
+        // Don't process movement input if dialogue is active or ending is fading out
+        if (!DialogueRunner.IsDialogueActive && !EndingTrigger.IsFadingOut)
+        {
 #if ENABLE_INPUT_SYSTEM
-        if (keyboard != null)
-        {
-            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+            if (keyboard != null)
             {
-                input -= 1f; leftNow = true;
-                if (_walking == null)
-                    _walking = StartCoroutine(WalkingSFX());
+                if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+                {
+                    input -= 1f; leftNow = true;
+                    if (_walking == null)
+                        _walking = StartCoroutine(WalkingSFX());
+                }
+                if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+                {
+                    input += 1f; rightNow = true;
+                    if (_walking == null)
+                        _walking = StartCoroutine(WalkingSFX());
+                }
             }
-            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
-            {
-                input += 1f; rightNow = true;
-                if (_walking == null)
-                    _walking = StartCoroutine(WalkingSFX());
-            }
-        }
-        else
+            else
 #endif
-        {
-            input = Input.GetAxis("Horizontal");
-            leftNow = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-            rightNow = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-            if (Mathf.Approximately(input, 0f))
             {
-                if (leftNow) input -= 1f;
-                if (rightNow) input += 1f;
+                input = Input.GetAxis("Horizontal");
+                leftNow = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+                rightNow = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+                if (Mathf.Approximately(input, 0f))
+                {
+                    if (leftNow) input -= 1f;
+                    if (rightNow) input += 1f;
+                }
             }
         }
 
-        // Move in world space
-        Vector3 delta = new Vector3(input * speed * Time.deltaTime, 0f, 0f);
-        transform.Translate(delta, Space.World);
+        // Move in world space (only if dialogue is not active and not fading out)
+        if (!DialogueRunner.IsDialogueActive && !EndingTrigger.IsFadingOut)
+        {
+            Vector3 delta = new Vector3(input * speed * Time.deltaTime, 0f, 0f);
+            transform.Translate(delta, Space.World);
+        }
 
-        // Animator: true when moving, false when idle
+        // Animator: true when moving, false when idle (and not in dialogue or fading out)
         if (animator)
-            animator.SetBool("isRunning", Mathf.Abs(input) > 0.01f);
+            animator.SetBool("isRunning", !DialogueRunner.IsDialogueActive && !EndingTrigger.IsFadingOut && Mathf.Abs(input) > 0.01f);
 
-        // Flip to face input direction
-        if (spriteRenderer && Mathf.Abs(input) > 0.01f)
+        // Flip to face input direction (only if not in dialogue or fading out)
+        if (spriteRenderer && !DialogueRunner.IsDialogueActive && !EndingTrigger.IsFadingOut && Mathf.Abs(input) > 0.01f)
         {
             bool movingRight = input > 0f;
             spriteRenderer.flipX = spriteFacesRight ? !movingRight : movingRight;
@@ -168,8 +175,17 @@ public class PlayerController2D : MonoBehaviour
         _leftPressedPrev = leftNow;
         _rightPressedPrev = rightNow;
 
+        // Stop walking sound if dialogue becomes active or ending fade starts
+        if ((DialogueRunner.IsDialogueActive || EndingTrigger.IsFadingOut) && _walking != null)
+        {
+            StopCoroutine(_walking);
+            _walking = null;
+        }
+
         // On-screen fallback line
-        _debugLine = $"InputX={input:0.00}  Left={(leftNow?1:0)} Right={(rightNow?1:0)}  E={(ePressedFrame? "Down":"")}";
+        string dialogueStatus = DialogueRunner.IsDialogueActive ? "D:Active" : "D:Off";
+        string endingStatus = EndingTrigger.IsFadingOut ? "E:Fading" : "E:Off";
+        _debugLine = $"Input={input:0.00} L:{(leftNow?1:0)} R:{(rightNow?1:0)} E:{(ePressedFrame? "Down":"")} {dialogueStatus} {endingStatus}";
     }
 
     private void OnGUI()

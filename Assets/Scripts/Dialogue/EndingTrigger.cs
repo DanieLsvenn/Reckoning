@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class EndingTrigger : MonoBehaviour
 {
@@ -8,9 +10,19 @@ public class EndingTrigger : MonoBehaviour
     [SerializeField] private string changemakerEndingScene = "Ending_Changemaker";
     [SerializeField] private string wandererEndingScene = "Ending_Wanderer";
     
+    [Header("Fade Effect")]
+    [SerializeField] private float fadeOutDuration = 4f;
+    [SerializeField] private Image fadeOverlay;
+    [SerializeField] private bool createFadeOverlayAutomatically = true;
+    
     [Header("Debug Info")]
     [SerializeField] private bool showDebugInfo = true;
     [SerializeField] private EndingType predictedEnding;
+    
+    private bool isTriggered = false; // Prevent multiple triggers
+    
+    // Static flag to indicate when ending fadeout is happening (used by PlayerController)
+    public static bool IsFadingOut { get; private set; } = false;
     
     public enum EndingType
     {
@@ -24,6 +36,9 @@ public class EndingTrigger : MonoBehaviour
     {
         // Update predicted ending for inspector visualization
         UpdatePredictedEnding();
+        
+        // Create fade overlay if needed
+        SetupFadeOverlay();
     }
 
     private void Update()
@@ -63,6 +78,10 @@ public class EndingTrigger : MonoBehaviour
 
     public void TriggerEnding()
     {
+        // Prevent multiple triggers
+        if (isTriggered) return;
+        isTriggered = true;
+        
         if (MoralSystem.Instance == null)
         {
             Debug.LogError("[EndingTrigger] MoralSystem instance not found! Cannot determine ending.");
@@ -77,7 +96,8 @@ public class EndingTrigger : MonoBehaviour
             Debug.Log($"[EndingTrigger] Determined ending: {ending}");
         }
 
-        LoadEndingScene(ending);
+        // Start fade-out coroutine instead of immediately loading scene
+        StartCoroutine(FadeOutAndLoadScene(ending));
     }
 
     private EndingType CalculateEnding()
@@ -228,5 +248,132 @@ public class EndingTrigger : MonoBehaviour
         predictedEnding = ending;
         LogMoralValues();
         Debug.Log($"[EndingTrigger] Predicted ending: {ending}");
+    }
+    
+    private void SetupFadeOverlay()
+    {
+        if (fadeOverlay != null) 
+        {
+            // Ensure overlay starts transparent
+            Color c = fadeOverlay.color;
+            c.a = 0f;
+            fadeOverlay.color = c;
+            return;
+        }
+        
+        if (!createFadeOverlayAutomatically) return;
+        
+        // Find or create Canvas
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            GameObject canvasGO = new GameObject("FadeCanvas");
+            canvas = canvasGO.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.sortingOrder = 9999; // Ensure it's on top
+            canvasGO.AddComponent<GraphicRaycaster>();
+        }
+        
+        // Create fade overlay
+        GameObject overlayGO = new GameObject("WhiteFadeOverlay");
+        overlayGO.transform.SetParent(canvas.transform, false);
+        
+        fadeOverlay = overlayGO.AddComponent<Image>();
+        fadeOverlay.color = new Color(1f, 1f, 1f, 0f); // White, fully transparent
+        
+        // Make it fullscreen
+        RectTransform rectTransform = fadeOverlay.GetComponent<RectTransform>();
+        rectTransform.anchorMin = Vector2.zero;
+        rectTransform.anchorMax = Vector2.one;
+        rectTransform.offsetMin = Vector2.zero;
+        rectTransform.offsetMax = Vector2.zero;
+        
+        Debug.Log("[EndingTrigger] Created white fade overlay automatically.");
+    }
+    
+    private IEnumerator FadeOutAndLoadScene(EndingType ending)
+    {
+        if (fadeOverlay == null)
+        {
+            Debug.LogWarning("[EndingTrigger] No fade overlay found! Loading scene immediately.");
+            LoadEndingScene(ending);
+            yield break;
+        }
+        
+        Debug.Log($"[EndingTrigger] Starting {fadeOutDuration}-second white fade-out...");
+        
+        // Disable player movement during fade by setting a static flag that PlayerController can check
+        EndingTrigger.IsFadingOut = true;
+        
+        float elapsedTime = 0f;
+        Color startColor = fadeOverlay.color;
+        Color endColor = new Color(1f, 1f, 1f, 1f); // White, fully opaque
+        
+        // Fade from transparent to white over the specified duration
+        while (elapsedTime < fadeOutDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / fadeOutDuration;
+            
+            fadeOverlay.color = Color.Lerp(startColor, endColor, t);
+            yield return null;
+        }
+        
+        // Ensure it's fully white
+        fadeOverlay.color = endColor;
+        
+        Debug.Log("[EndingTrigger] Fade-out complete. Loading ending scene...");
+        
+        // Load the ending scene
+        LoadEndingScene(ending);
+    }
+    
+    // Public method to test the fade effect without triggering ending
+    [ContextMenu("Test Fade Effect")]
+    public void TestFadeEffect()
+    {
+        if (!isTriggered)
+        {
+            StartCoroutine(TestFadeCoroutine());
+        }
+    }
+    
+    private IEnumerator TestFadeCoroutine()
+    {
+        Debug.Log("[EndingTrigger] Testing fade effect...");
+        
+        if (fadeOverlay == null)
+        {
+            Debug.LogWarning("[EndingTrigger] No fade overlay for testing!");
+            yield break;
+        }
+        
+        // Fade to white
+        float elapsedTime = 0f;
+        Color startColor = fadeOverlay.color;
+        Color endColor = new Color(1f, 1f, 1f, 1f);
+        
+        while (elapsedTime < fadeOutDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / fadeOutDuration;
+            fadeOverlay.color = Color.Lerp(startColor, endColor, t);
+            yield return null;
+        }
+        
+        // Wait a moment, then fade back
+        yield return new WaitForSeconds(1f);
+        
+        elapsedTime = 0f;
+        while (elapsedTime < 1f)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / 1f;
+            fadeOverlay.color = Color.Lerp(endColor, startColor, t);
+            yield return null;
+        }
+        
+        fadeOverlay.color = startColor;
+        Debug.Log("[EndingTrigger] Fade test complete.");
     }
 }
