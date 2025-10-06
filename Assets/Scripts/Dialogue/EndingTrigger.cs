@@ -1,69 +1,91 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndingTrigger : MonoBehaviour
 {
-    [System.Serializable]
-    public class EndingScene
-    {
-        public EndingType endingType;
-        public string sceneName;
-        [TextArea(2, 4)]
-        public string description;
-    }
-
-    [Header("Ending Scenes")]
-    [SerializeField] private EndingScene[] endingScenes = new EndingScene[]
-    {
-        new EndingScene { endingType = EndingType.TheSage, sceneName = "Ending_Sage", description = "THE SAGE - Philosophy teacher dedicated to guiding students" },
-        new EndingScene { endingType = EndingType.TheChangemaker, sceneName = "Ending_Changemaker", description = "THE CHANGEMAKER - Social activist using science and action" },
-        new EndingScene { endingType = EndingType.TheWanderer, sceneName = "Ending_Wanderer", description = "THE WANDERER - Artist/writer aware of life's contradictions" }
-    };
-
-    [Header("Debug")]
+    [Header("Scene Names")]
+    [SerializeField] private string sageEndingScene = "Ending_Sage";
+    [SerializeField] private string changemakerEndingScene = "Ending_Changemaker";
+    [SerializeField] private string wandererEndingScene = "Ending_Wanderer";
+    
+    [Header("Debug Info")]
     [SerializeField] private bool showDebugInfo = true;
-    [SerializeField] private bool testEndingCalculation = false;
-
-    public static EndingTrigger Instance { get; private set; }
-
+    [SerializeField] private EndingType predictedEnding;
+    
     public enum EndingType
     {
-        TheSage,
-        TheChangemaker,
-        TheWanderer,
-        Default
-    }
-
-    private void Awake()
-    {
-        if (Instance && Instance != this) 
-        { 
-            Destroy(gameObject); 
-            return; 
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        Sage,
+        Changemaker,
+        Wanderer,
+        None
     }
 
     private void Start()
     {
-        if (testEndingCalculation)
+        // Update predicted ending for inspector visualization
+        UpdatePredictedEnding();
+    }
+
+    private void Update()
+    {
+        // Update predicted ending every frame for real-time preview
+        if (Application.isPlaying)
         {
-            TestEndingCalculation();
+            UpdatePredictedEnding();
         }
     }
 
-    /// <summary>
-    /// Calculates which ending the player should get based on their moral axis values
-    /// </summary>
-    /// <returns>The ending type based on the calculation formula</returns>
-    public EndingType CalculateEnding()
+    private void UpdatePredictedEnding()
+    {
+        if (MoralSystem.Instance != null)
+        {
+            predictedEnding = CalculateEnding();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the player entered the trigger
+        if (other.CompareTag("Player"))
+        {
+            TriggerEnding();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Support for 2D colliders as well
+        if (other.CompareTag("Player"))
+        {
+            TriggerEnding();
+        }
+    }
+
+    public void TriggerEnding()
     {
         if (MoralSystem.Instance == null)
         {
-            Debug.LogError("[EndingTrigger] MoralSystem.Instance is null! Cannot calculate ending.");
-            return EndingType.Default;
+            Debug.LogError("[EndingTrigger] MoralSystem instance not found! Cannot determine ending.");
+            return;
+        }
+
+        EndingType ending = CalculateEnding();
+        
+        if (showDebugInfo)
+        {
+            LogMoralValues();
+            Debug.Log($"[EndingTrigger] Determined ending: {ending}");
+        }
+
+        LoadEndingScene(ending);
+    }
+
+    private EndingType CalculateEnding()
+    {
+        if (MoralSystem.Instance == null) 
+        {
+            Debug.LogError("[EndingTrigger] MoralSystem.Instance is null!");
+            return EndingType.None;
         }
 
         // Get all moral axis values
@@ -75,175 +97,136 @@ public class EndingTrigger : MonoBehaviour
         int chaos = MoralSystem.Instance.Get(MoralAxis.Chaos);
         int pessimism = MoralSystem.Instance.Get(MoralAxis.Pessimism);
 
-        if (showDebugInfo)
-        {
-            Debug.Log($"[EndingTrigger] Current Moral Values:");
-            Debug.Log($"Idealism: {idealism}, Materialism: {materialism}");
-            Debug.Log($"Rationalism: {rationalism}, Empiricism: {empiricism}");
-            Debug.Log($"Order: {order}, Chaos: {chaos}");
-            Debug.Log($"Pessimism: {pessimism}");
-        }
+        // Debug log all values
+        Debug.Log($"[EndingTrigger] Raw values - Idealism:{idealism}, Materialism:{materialism}, Rationalism:{rationalism}, Empiricism:{empiricism}, Order:{order}, Chaos:{chaos}, Pessimism:{pessimism}");
 
         // Apply ending calculation formula
-        EndingType ending = ApplyEndingFormula(idealism, materialism, rationalism, empiricism, order, chaos, pessimism);
-
-        if (showDebugInfo)
-        {
-            Debug.Log($"[EndingTrigger] Calculated ending: {ending}");
-        }
-
-        return ending;
-    }
-
-    /// <summary>
-    /// Applies the ending calculation formula
-    /// </summary>
-    private EndingType ApplyEndingFormula(int idealism, int materialism, int rationalism, int empiricism, int order, int chaos, int pessimism)
-    {
-        // Formula Priority:
-        // 1. If Pessimism ≥ 10 → ENDING 3: The Wanderer
+        
+        // Rule 1: If Pessimism ≥ 10 → THE WANDERER
+        Debug.Log($"[EndingTrigger] Checking Rule 1 - Pessimism ({pessimism}) >= 10? {pessimism >= 10}");
         if (pessimism >= 10)
         {
-            if (showDebugInfo)
-                Debug.Log($"[EndingTrigger] Pessimism ({pessimism}) ≥ 10 → The Wanderer");
-            return EndingType.TheWanderer;
+            Debug.Log("[EndingTrigger] Rule 1 triggered: THE WANDERER (High Pessimism)");
+            return EndingType.Wanderer;
         }
 
-        // 2. If (Idealism + Rationalism + Order) ≥ 15 → ENDING 1: The Sage
+        // Rule 2: If (Idealism + Rationalism + Order) ≥ 15 → THE SAGE
         int sageScore = idealism + rationalism + order;
+        Debug.Log($"[EndingTrigger] Checking Rule 2 - Sage Score ({idealism}+{rationalism}+{order}={sageScore}) >= 15? {sageScore >= 15}");
         if (sageScore >= 15)
         {
-            if (showDebugInfo)
-                Debug.Log($"[EndingTrigger] Sage Score ({idealism}+{rationalism}+{order}={sageScore}) ≥ 15 → The Sage");
-            return EndingType.TheSage;
+            Debug.Log("[EndingTrigger] Rule 2 triggered: THE SAGE (High Idealism+Rationalism+Order)");
+            return EndingType.Sage;
         }
 
-        // 3. If (Materialism + Empiricism + Chaos) ≥ 15 → ENDING 2: The Changemaker
+        // Rule 3: If (Materialism + Empiricism + Chaos) ≥ 15 → THE CHANGEMAKER
         int changemakerScore = materialism + empiricism + chaos;
+        Debug.Log($"[EndingTrigger] Checking Rule 3 - Changemaker Score ({materialism}+{empiricism}+{chaos}={changemakerScore}) >= 15? {changemakerScore >= 15}");
         if (changemakerScore >= 15)
         {
-            if (showDebugInfo)
-                Debug.Log($"[EndingTrigger] Changemaker Score ({materialism}+{empiricism}+{chaos}={changemakerScore}) ≥ 15 → The Changemaker");
-            return EndingType.TheChangemaker;
+            Debug.Log("[EndingTrigger] Rule 3 triggered: THE CHANGEMAKER (High Materialism+Empiricism+Chaos)");
+            return EndingType.Changemaker;
         }
 
-        // 4. Otherwise → The ending is determined by the highest individual score
+        // Rule 4: Otherwise → Ending determined by highest individual score
         int maxValue = Mathf.Max(idealism, materialism, rationalism, empiricism, order, chaos, pessimism);
+        Debug.Log($"[EndingTrigger] Rule 4 - Highest individual score: {maxValue}");
         
-        if (showDebugInfo)
-            Debug.Log($"[EndingTrigger] No threshold met, using highest individual score: {maxValue}");
-
         // Find which axis has the highest value (in case of ties, priority order matters)
-        if (pessimism == maxValue) return EndingType.TheWanderer;
-        if (idealism == maxValue) return EndingType.TheSage;
-        if (rationalism == maxValue) return EndingType.TheSage;
-        if (order == maxValue) return EndingType.TheSage;
-        if (materialism == maxValue) return EndingType.TheChangemaker;
-        if (empiricism == maxValue) return EndingType.TheChangemaker;
-        if (chaos == maxValue) return EndingType.TheChangemaker;
+        if (pessimism == maxValue) 
+        {
+            Debug.Log("[EndingTrigger] Rule 4 result: THE WANDERER (Highest Pessimism)");
+            return EndingType.Wanderer;
+        }
+        if (idealism == maxValue || rationalism == maxValue || order == maxValue) 
+        {
+            Debug.Log("[EndingTrigger] Rule 4 result: THE SAGE (Highest Sage-related axis)");
+            return EndingType.Sage;
+        }
+        if (materialism == maxValue || empiricism == maxValue || chaos == maxValue) 
+        {
+            Debug.Log("[EndingTrigger] Rule 4 result: THE CHANGEMAKER (Highest Changemaker-related axis)");
+            return EndingType.Changemaker;
+        }
 
-        // Fallback (should not happen if MoralSystem is working correctly)
-        Debug.LogWarning("[EndingTrigger] Could not determine ending, defaulting to The Sage");
-        return EndingType.TheSage;
+        // Default fallback (shouldn't happen, but just in case)
+        Debug.Log("[EndingTrigger] Fallback triggered: THE WANDERER (Default)");
+        return EndingType.Wanderer;
     }
 
-    /// <summary>
-    /// Triggers the appropriate ending scene based on moral axis values
-    /// </summary>
-    public void TriggerEnding()
+    private void LoadEndingScene(EndingType ending)
     {
-        EndingType ending = CalculateEnding();
-        LoadEndingScene(ending);
-    }
-
-    /// <summary>
-    /// Loads the scene for the specified ending
-    /// </summary>
-    /// <param name="endingType">The type of ending to load</param>
-    public void LoadEndingScene(EndingType endingType)
-    {
-        EndingScene endingScene = GetEndingScene(endingType);
+        string sceneToLoad = "";
         
-        if (endingScene == null)
+        switch (ending)
         {
-            Debug.LogError($"[EndingTrigger] No ending scene configured for {endingType}!");
+            case EndingType.Sage:
+                sceneToLoad = sageEndingScene;
+                break;
+            case EndingType.Changemaker:
+                sceneToLoad = changemakerEndingScene;
+                break;
+            case EndingType.Wanderer:
+                sceneToLoad = wandererEndingScene;
+                break;
+            default:
+                Debug.LogError($"[EndingTrigger] Unknown ending type: {ending}");
+                return;
+        }
+
+        if (string.IsNullOrEmpty(sceneToLoad))
+        {
+            Debug.LogError($"[EndingTrigger] Scene name not set for ending: {ending}");
             return;
         }
 
-        if (string.IsNullOrEmpty(endingScene.sceneName))
-        {
-            Debug.LogError($"[EndingTrigger] Scene name is empty for ending {endingType}!");
-            return;
-        }
-
-        Debug.Log($"[EndingTrigger] Loading ending scene: {endingScene.sceneName} ({endingType})");
-        Debug.Log($"[EndingTrigger] Ending Description: {endingScene.description}");
-
-        // Save the current moral state before transitioning
-        if (MoralSystem.Instance != null)
-        {
-            MoralSystem.Instance.LogCurrentValues();
-        }
-
-        // Load the ending scene
-        SceneManager.LoadScene(endingScene.sceneName);
+        Debug.Log($"[EndingTrigger] Loading ending scene: {sceneToLoad}");
+        SceneManager.LoadScene(sceneToLoad);
     }
 
-    /// <summary>
-    /// Gets the ending scene configuration for the specified ending type
-    /// </summary>
-    private EndingScene GetEndingScene(EndingType endingType)
+    private void LogMoralValues()
     {
-        foreach (var scene in endingScenes)
-        {
-            if (scene.endingType == endingType)
-                return scene;
-        }
-        return null;
+        Debug.Log("=== ENDING CALCULATION ===");
+        Debug.Log($"Idealism: {MoralSystem.Instance.Get(MoralAxis.Idealism)}");
+        Debug.Log($"Materialism: {MoralSystem.Instance.Get(MoralAxis.Materialism)}");
+        Debug.Log($"Rationalism: {MoralSystem.Instance.Get(MoralAxis.Rationalism)}");
+        Debug.Log($"Empiricism: {MoralSystem.Instance.Get(MoralAxis.Empiricism)}");
+        Debug.Log($"Order: {MoralSystem.Instance.Get(MoralAxis.Order)}");
+        Debug.Log($"Chaos: {MoralSystem.Instance.Get(MoralAxis.Chaos)}");
+        Debug.Log($"Pessimism: {MoralSystem.Instance.Get(MoralAxis.Pessimism)}");
+        
+        int sageScore = MoralSystem.Instance.Get(MoralAxis.Idealism) + 
+                       MoralSystem.Instance.Get(MoralAxis.Rationalism) + 
+                       MoralSystem.Instance.Get(MoralAxis.Order);
+        int changemakerScore = MoralSystem.Instance.Get(MoralAxis.Materialism) + 
+                              MoralSystem.Instance.Get(MoralAxis.Empiricism) + 
+                              MoralSystem.Instance.Get(MoralAxis.Chaos);
+        
+        Debug.Log($"Sage Score (Idealism + Rationalism + Order): {sageScore}");
+        Debug.Log($"Changemaker Score (Materialism + Empiricism + Chaos): {changemakerScore}");
+        Debug.Log("===========================");
     }
 
-    /// <summary>
-    /// Test method to verify ending calculation logic
-    /// </summary>
-    [ContextMenu("Test Ending Calculation")]
-    public void TestEndingCalculation()
+    // Public method to manually trigger ending (useful for testing)
+    [ContextMenu("Test Trigger Ending")]
+    public void TestTriggerEnding()
+    {
+        TriggerEnding();
+    }
+
+    // Public method to check what ending would be triggered without loading the scene
+    [ContextMenu("Preview Ending")]
+    public void PreviewEnding()
     {
         if (MoralSystem.Instance == null)
         {
-            Debug.LogError("[EndingTrigger] Cannot test ending calculation - MoralSystem.Instance is null!");
+            Debug.LogWarning("[EndingTrigger] MoralSystem instance not found!");
             return;
         }
 
-        Debug.Log("=== ENDING CALCULATION TEST ===");
-        EndingType result = CalculateEnding();
-        Debug.Log($"Current ending would be: {result}");
-        
-        EndingScene scene = GetEndingScene(result);
-        if (scene != null)
-        {
-            Debug.Log($"Scene to load: {scene.sceneName}");
-            Debug.Log($"Description: {scene.description}");
-        }
-        Debug.Log("===============================");
-    }
-
-    /// <summary>
-    /// Public method to check what ending would be triggered without actually triggering it
-    /// </summary>
-    /// <returns>The ending type that would be triggered</returns>
-    public EndingType PreviewEnding()
-    {
-        return CalculateEnding();
-    }
-
-    /// <summary>
-    /// Gets a description of the ending that would be triggered
-    /// </summary>
-    /// <returns>Description string of the ending</returns>
-    public string GetEndingDescription()
-    {
-        EndingType endingType = CalculateEnding();
-        EndingScene scene = GetEndingScene(endingType);
-        return scene?.description ?? "No description available";
+        EndingType ending = CalculateEnding();
+        predictedEnding = ending;
+        LogMoralValues();
+        Debug.Log($"[EndingTrigger] Predicted ending: {ending}");
     }
 }
