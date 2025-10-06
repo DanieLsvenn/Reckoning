@@ -7,8 +7,12 @@ public class VoidBackgroundTrigger : MonoBehaviour
     [SerializeField] private Vector2 changeColorTrigger;
     [SerializeField] private Vector2 endChangeColorTrigger;
     [SerializeField] private Vector2 triggerPosition;
+
+
     [SerializeField] private GameObject voidBackground;
+
     [SerializeField] private SoundTrackList SoundTrack;
+    [SerializeField] private float soundtrackDelay = 0.5f;
 
     private Animator voidAnimator;
 
@@ -33,7 +37,7 @@ public class VoidBackgroundTrigger : MonoBehaviour
         {
             voidAnimator.SetTrigger("voidAnimationTrigger");
             if (SoundTrackPlayer.IsInitialized)
-                SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack);
+                SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack, soundtrackDelay);
         }
     }
 
