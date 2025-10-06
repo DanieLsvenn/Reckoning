@@ -258,7 +258,7 @@ public class PlayerController2D : MonoBehaviour
         while (currentKeyboard != null && (currentKeyboard.aKey.isPressed || currentKeyboard.leftArrowKey.isPressed || currentKeyboard.dKey.isPressed || currentKeyboard.rightArrowKey.isPressed))
         {
             AudioManager.Instance.PlaySound(SoundEffectType.ConcreteStepping);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.65f);
             // Refresh keyboard reference in case it changed during the wait
             currentKeyboard = Keyboard.current;
         }

@@ -167,6 +167,12 @@ MonoBehaviour:
   - SoundName: HeartBeat
     sounds:
     - {fileID: 8300000, guid: 61cfb86884fabac4faaff85f84f32240, type: 3}
+  - SoundName: EndingScreenFadeIn
+    sounds:
+    - {fileID: 8300000, guid: 3f86c03b6d76bdb4bab46536170559f2, type: 3}
+  - SoundName: CutSceneDialogueContinue
+    sounds:
+    - {fileID: 8300000, guid: d97b2d9a6cc36c341b3b2dce1f1c4f10, type: 3}
   soundTracks:
   - SoundTrackName: MainMenu
     soundTracks: {fileID: 8300000, guid: adda4e1443689a84a8d84cdd036165dc, type: 3}
@@ -181,9 +187,9 @@ MonoBehaviour:
   - SoundTrackName: Blank
     soundTracks: {fileID: 8300000, guid: d2c4d206da2aa5e44aaf91961eafaa55, type: 3}
   - SoundTrackName: Ending_ChangeMaker
-    soundTracks: {fileID: 8300000, guid: 1a542eea3ef94c545b1517c0d72dcc48, type: 3}
-  - SoundTrackName: Ending_Sage
     soundTracks: {fileID: 8300000, guid: 2dcce1c70628676439c7972acda76c86, type: 3}
+  - SoundTrackName: Ending_Sage
+    soundTracks: {fileID: 8300000, guid: 1a542eea3ef94c545b1517c0d72dcc48, type: 3}
   - SoundTrackName: Ending_Wanderer
     soundTracks: {fileID: 8300000, guid: 78f1891f7724012479a94c4735ddbba0, type: 3}
   musicSource: {fileID: 8344467730207989545}
