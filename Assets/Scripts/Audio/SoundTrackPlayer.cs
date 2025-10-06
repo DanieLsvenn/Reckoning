@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ public class SoundTrackPlayer : MonoBehaviour
             Destroy(gameObject);
         }
 
-        AudioManager.Instance.PlaySoundTrack(soundTrack);
+        StartCoroutine(FadeIn());
     }
 
     public void SetSoundTrack(SoundTrackList newSoundTrack, float soundTrackSwitchDelay)
@@ -62,4 +63,31 @@ public class SoundTrackPlayer : MonoBehaviour
         AudioManager.Instance.musicSource.volume = startVolume;
     }
 
+    public IEnumerator FadeOut()
+    {
+        float fadeTime = 1f;
+        float startVolume = AudioManager.Instance.musicSource.volume;
+
+        // Fade out
+        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        {
+            AudioManager.Instance.musicSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeTime);
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float fadeTime = 1f;
+        float startVolume = AudioManager.Instance.musicSource.volume;
+
+        AudioManager.Instance.PlaySoundTrack(soundTrack);
+
+        // Fade in
+        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        {
+            AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, startVolume, t / fadeTime);
+            yield return null;
+        }
+    }
 }

@@ -323,7 +323,10 @@ public class EndingTrigger : MonoBehaviour
         fadeOverlay.color = endColor;
         
         Debug.Log("[EndingTrigger] Fade-out complete. Loading ending scene...");
-        
+
+        // Fade music out before loading the ending screen
+        StartCoroutine(SoundTrackPlayer.Instance.FadeOut());
+
         // Load the ending scene
         LoadEndingScene(ending);
     }
