@@ -6,6 +6,11 @@ public class DialogueController : MonoBehaviour
 
     public void BeginFor(PhilosopherNPC npc)
     {
-        if (npc?.Data?.inkJson) runner.Begin(npc.Data.inkJson);
+        if (npc?.Data?.inkJson) 
+        {
+            // Set the current NPC in the runner before starting dialogue
+            runner.SetCurrentNPC(npc);
+            runner.Begin(npc.Data.inkJson);
+        }
     }
 }

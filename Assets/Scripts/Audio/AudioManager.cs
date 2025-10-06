@@ -19,6 +19,9 @@ public enum SoundTrackList
     Brutalist,
     Void,
     Blank
+    Ending_ChangeMaker,
+    Ending_Sage,
+    Ending_Wanderer
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

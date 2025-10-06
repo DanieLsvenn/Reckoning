@@ -226,8 +226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1649077807}
-  fadeDuration: 2
+  fadeDuration: 4
   sceneToLoad: OpeningScene
+  createFadeImageAutomatically: 1
+  showDebugLogs: 1
 --- !u!4 &152864188
 Transform:
   m_ObjectHideFlags: 0
@@ -875,7 +877,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &489015057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,7 +922,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &489015059
 RectTransform:
@@ -1380,6 +1382,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba2e3f79005d684c85d80bfbef395d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSceneChanger: {fileID: 152864187}
+  targetScene: OpeningScene
+  findFadeChangerAutomatically: 1
+--- !u!1 &1049672981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049672983}
+  - component: {fileID: 1049672982}
+  m_Layer: 0
+  m_Name: MainMenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1049672982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049672981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee78b84140dd83e4baf1d748f3051a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainGameScene: Main
+  optionsScene: Options
+  creditsScene: Credits
+  openingScene: OpeningScene
+  fadeChanger: {fileID: 0}
+  findFadeChangerAutomatically: 1
+  startButton: {fileID: 1016767631}
+  optionsButton: {fileID: 0}
+  creditsButton: {fileID: 0}
+  quitButton: {fileID: 376750610}
+  playButtonSounds: 1
+  showDebugLogs: 1
+--- !u!4 &1049672983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049672981}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 80.90118, y: 3.9541721, z: -4.3944855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217838793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1649077806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2122,9 +2183,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 554784396}
+  - {fileID: 489015059}
   - {fileID: 492736723}
   - {fileID: 926292615}
   - {fileID: 344163061}
   - {fileID: 2131719865}
-  - {fileID: 489015059}
   - {fileID: 152864188}
+  - {fileID: 1049672983}

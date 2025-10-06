@@ -177,6 +177,12 @@ MonoBehaviour:
     soundTracks: {fileID: 8300000, guid: a0e10bb915b2c684aa4c952a37c714b7, type: 3}
   - SoundTrackName: Blank
     soundTracks: {fileID: 8300000, guid: d2c4d206da2aa5e44aaf91961eafaa55, type: 3}
+  - SoundTrackName: Ending_ChangeMaker
+    soundTracks: {fileID: 8300000, guid: 1a542eea3ef94c545b1517c0d72dcc48, type: 3}
+  - SoundTrackName: Ending_Sage
+    soundTracks: {fileID: 8300000, guid: 2dcce1c70628676439c7972acda76c86, type: 3}
+  - SoundTrackName: Ending_Wanderer
+    soundTracks: {fileID: 8300000, guid: 78f1891f7724012479a94c4735ddbba0, type: 3}
   musicSource: {fileID: 8344467730207989545}
   musicGroup: {fileID: 6305826975566204033, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}
   sfxGroup: {fileID: 4029326300383797461, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}

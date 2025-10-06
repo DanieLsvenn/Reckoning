@@ -14,6 +14,12 @@ public class DialogueRunner : MonoBehaviour
     public event Action OnEnd;
     public event Action<List<string>> OnTags;
 
+    // Static property to track if dialogue is currently active
+    public static bool IsDialogueActive { get; private set; } = false;
+    
+    // Track the current NPC being talked to
+    private PhilosopherNPC currentNPC;
+
     // NEW: sticker integration controls
     [Header("Tags & Stickers")]
     [SerializeField] private StickerSystem stickerSystem;      // assign for anchoring
@@ -22,6 +28,11 @@ public class DialogueRunner : MonoBehaviour
 
     private Story story;
 
+    public void SetCurrentNPC(PhilosopherNPC npc)
+    {
+        currentNPC = npc;
+    }
+    
     public void Begin(TextAsset source)
     {
         inkJson = source;
@@ -32,6 +43,10 @@ public class DialogueRunner : MonoBehaviour
             if (type == ErrorType.Warning) Debug.LogWarning(msg);
             else Debug.LogError(msg);
         };
+        
+        // Set dialogue as active when starting
+        IsDialogueActive = true;
+        
         Continue();
     }
 
@@ -95,6 +110,18 @@ public class DialogueRunner : MonoBehaviour
         }
         else
         {
+            // Mark current NPC as talked to before ending dialogue
+            if (currentNPC?.Data != null)
+            {
+                PhilosopherNPC.MarkAsTalkedTo(currentNPC.Data.philosopherId);
+            }
+            
+            // Set dialogue as inactive when ending
+            IsDialogueActive = false;
+            
+            // Clear current NPC reference
+            currentNPC = null;
+            
             OnEnd?.Invoke();
         }
     }

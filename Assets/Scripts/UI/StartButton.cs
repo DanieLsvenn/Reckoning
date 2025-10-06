@@ -7,18 +7,58 @@ using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
+    [Header("Scene Transition")]
+    [SerializeField] private FadeSceneChanger fadeSceneChanger;
+    [SerializeField] private string targetScene = "OpeningScene";
+    [SerializeField] private bool findFadeChangerAutomatically = true;
+    
+    private void Start()
+    {
+        // Auto-find FadeSceneChanger if not assigned
+        if (fadeSceneChanger == null && findFadeChangerAutomatically)
+        {
+            fadeSceneChanger = FindObjectOfType<FadeSceneChanger>();
+            if (fadeSceneChanger == null)
+            {
+                Debug.LogWarning("[StartButton] No FadeSceneChanger found in scene. Will use direct scene loading as fallback.");
+            }
+        }
+    }
+
     public void OnStartButtonClick()
     {
+        // Play button click sound if available
+        if (AudioManager.IsInitialized)
+        {
+            // Uncomment these if you want sound effects
+            // AudioManager.Instance.PlaySound(SoundEffectType.BUTTONCLICK);
+        }
+
         StartCoroutine(ChangeScene());
     }
 
     private IEnumerator ChangeScene()
     {
-        //SoundManager.Instance.PlaySound(SoundEffectType.BUTTONCLICK);
-        //SoundManager.Instance.PlaySound(SoundEffectType.ENDTURN);
+        // Clear player prefs for new game
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("OpeningScene");
+        
+        // Use fade transition if available, otherwise direct load
+        if (fadeSceneChanger != null)
+        {
+            fadeSceneChanger.FadeToScene(targetScene);
+        }
+        else
+        {
+            // Fallback: direct scene loading with delay
+            yield return new WaitForSeconds(0.5f);
+            SceneManager.LoadScene(targetScene);
+        }
+    }
+    
+    // Public method to set target scene (useful for different menu buttons)
+    public void SetTargetScene(string sceneName)
+    {
+        targetScene = sceneName;
     }
 }

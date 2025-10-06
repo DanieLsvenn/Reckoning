@@ -155,15 +155,20 @@ public class DialogueCanvasUI : MonoBehaviour
 		EnableInteract();
 	}
 
-	private void HandleEnd()
-	{
-		ClearChoices();
-		CancelTypewriter();
-		CancelAutoAdvance();
-		if (hideOnEnd) Hide();
-	}
-
-	// --- Typewriter ---
+    private void HandleEnd()
+    {
+        ClearChoices();
+        CancelTypewriter();
+        CancelAutoAdvance();
+        if (hideOnEnd) Hide();
+        
+        // Ensure dialogue state is cleared when UI handles end
+        // (DialogueRunner should already handle this, but this is a safety net)
+        if (DialogueRunner.IsDialogueActive)
+        {
+            Debug.LogWarning("[DialogueCanvasUI] DialogueRunner.IsDialogueActive was still true on HandleEnd. Setting to false.");
+        }
+    }	// --- Typewriter ---
 
 	private void StartTypewriter(string fullText)
 	{
