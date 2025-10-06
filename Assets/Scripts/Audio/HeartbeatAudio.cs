@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HeartbeatAudio : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     public void Awake()
     {
         animator = GetComponent<Animator>();
