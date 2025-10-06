@@ -17,10 +17,6 @@ public class PlayerController2D : MonoBehaviour
     // Raised when the interact key is pressed (E by default)
     public System.Action OnInteract;
 
-#if ENABLE_INPUT_SYSTEM
-    private Keyboard keyboard;
-#endif
-
     [Header("Debug")]
     [SerializeField] private bool logInput = true;
     [SerializeField] private bool showOnScreen = true;
@@ -85,17 +81,19 @@ public class PlayerController2D : MonoBehaviour
             if (currentKeyboard != null)
             {
                 if (logInput && Time.frameCount % 60 == 0) // Debug every 60 frames
-                    Debug.Log($"[PlayerController2D] Using Input System - Keyboard available");
+                    Debug.Log($"[PlayerController2D] Using Input System - Keyboard available. A:{currentKeyboard.aKey.isPressed} D:{currentKeyboard.dKey.isPressed}");
 
                 if (currentKeyboard.aKey.isPressed || currentKeyboard.leftArrowKey.isPressed)
                 {
                     input -= 1f; leftNow = true;
+                    if (logInput) Debug.Log("[PlayerController2D] A/Left detected via Input System");
                     if (_walking == null)
                         _walking = StartCoroutine(WalkingSFX());
                 }
                 if (currentKeyboard.dKey.isPressed || currentKeyboard.rightArrowKey.isPressed)
                 {
                     input += 1f; rightNow = true;
+                    if (logInput) Debug.Log("[PlayerController2D] D/Right detected via Input System");
                     if (_walking == null)
                         _walking = StartCoroutine(WalkingSFX());
                 }
@@ -108,6 +106,8 @@ public class PlayerController2D : MonoBehaviour
                 input = Input.GetAxis("Horizontal");
                 leftNow = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
                 rightNow = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+                if (logInput && (leftNow || rightNow))
+                    Debug.Log($"[PlayerController2D] Legacy input - Horizontal:{input} A:{Input.GetKey(KeyCode.A)} D:{Input.GetKey(KeyCode.D)}");
                 if (Mathf.Approximately(input, 0f))
                 {
                     if (leftNow) input -= 1f;
@@ -116,6 +116,10 @@ public class PlayerController2D : MonoBehaviour
 #if ENABLE_INPUT_SYSTEM
             }
 #endif
+        }
+        else if (logInput && Time.frameCount % 60 == 0)
+        {
+            Debug.Log($"[PlayerController2D] Input blocked - Dialogue:{DialogueRunner.IsDialogueActive} Ending:{EndingTrigger.IsFadingOut}");
         }
 
         // Move in world space (only if dialogue is not active and not fading out)
