@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -33,6 +34,42 @@ public class VolumeSettings : MonoBehaviour
     {
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(vol) * 20);
     }
+
+    public IEnumerator SmoothPauseSoundTrack()
+    {
+        float startVol = musicSlider.value;
+        float t = 0f;
+        float duration = 1.25f;
+
+        while (t < 1f)
+        {
+            float newVol = Mathf.Lerp(startVol, 0.0001f, t);
+            mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(newVol) * 20);
+            t += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(0.0001f) * 20);
+    }
+
+
+    public IEnumerator SmoothResumeSoundTrack()
+    {
+        float endVol = musicSlider.value;
+        float t = 0f;
+        float duration = 1.25f;
+
+        while (t < 1f)
+        {
+            float curVol = Mathf.Lerp(0.0001f, endVol, t);
+            mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(curVol) * 20);
+            t += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(endVol) * 20);
+    }
+
 
     private void OnDisable()
     {

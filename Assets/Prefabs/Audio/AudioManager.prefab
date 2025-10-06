@@ -163,8 +163,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7c9598e82179fac489e7b34b53ea1626, type: 3}
   soundTracks:
   - SoundTrackName: MainMenu
-    soundTracks: {fileID: 8300000, guid: 41434a070f5964d42b7380e90b9ca4d2, type: 3}
-  - SoundTrackName: Philosophers
+    soundTracks: {fileID: 8300000, guid: adda4e1443689a84a8d84cdd036165dc, type: 3}
+  - SoundTrackName: Greek
+    soundTracks: {fileID: 8300000, guid: 1a5138715e026734eb7fa5712761338c, type: 3}
+  - SoundTrackName: China
+    soundTracks: {fileID: 8300000, guid: bbf664021b3f7a14493955f49eb85416, type: 3}
+  - SoundTrackName: Brutalist
+    soundTracks: {fileID: 8300000, guid: dcf52f4af6135de429864f7dd4071ea5, type: 3}
+  - SoundTrackName: Void
     soundTracks: {fileID: 8300000, guid: a0e10bb915b2c684aa4c952a37c714b7, type: 3}
+  musicSource: {fileID: 8344467730207989545}
   musicGroup: {fileID: 6305826975566204033, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}
   sfxGroup: {fileID: 4029326300383797461, guid: 56dfad26a41dfed44a209c66b3600c05, type: 2}

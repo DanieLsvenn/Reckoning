@@ -5,6 +5,7 @@ public class SoundTrackChanger : MonoBehaviour
 {
     private Collider2D stTrigger;
     [SerializeField] private SoundTrackList SoundTrack;
+    [SerializeField] float soundTrackSwitchDelay = 1f;
 
     private void Awake()
     {
@@ -16,6 +17,6 @@ public class SoundTrackChanger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (SoundTrackPlayer.IsInitialized)
-            SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack);
+            SoundTrackPlayer.Instance.SetSoundTrack(SoundTrack, soundTrackSwitchDelay);
     }
 }
