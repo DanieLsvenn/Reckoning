@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class FogRelocator : MonoBehaviour
 {
     public static FogRelocator Instance;
@@ -7,20 +8,20 @@ public class FogRelocator : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform FogWall;
 
+    private Collider2D frTrigger;
+
     public static bool IsInitialized => Instance != null;
 
     private void Awake()
     {
-        // Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);  // Keep the SoundManager across scenes
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        frTrigger = GetComponent<Collider2D>();
+
+        frTrigger.isTrigger = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        RelocateFog();
     }
 
     public void RelocateFog()
