@@ -123,8 +123,8 @@ public class EndingTrigger : MonoBehaviour
         // Apply ending calculation formula
         
         // Rule 1: If Pessimism ≥ 10 → THE WANDERER
-        Debug.Log($"[EndingTrigger] Checking Rule 1 - Pessimism ({pessimism}) >= 10? {pessimism >= 10}");
-        if (pessimism >= 10)
+        Debug.Log($"[EndingTrigger] Checking Rule 1 - Pessimism ({pessimism}) >= 45? {pessimism >= 45}");
+        if (pessimism >= 45)
         {
             Debug.Log("[EndingTrigger] Rule 1 triggered: THE WANDERER (High Pessimism)");
             return EndingType.Wanderer;
@@ -132,8 +132,8 @@ public class EndingTrigger : MonoBehaviour
 
         // Rule 2: If (Idealism + Rationalism + Order) ≥ 15 → THE SAGE
         int sageScore = idealism + rationalism + order;
-        Debug.Log($"[EndingTrigger] Checking Rule 2 - Sage Score ({idealism}+{rationalism}+{order}={sageScore}) >= 15? {sageScore >= 15}");
-        if (sageScore >= 15)
+        Debug.Log($"[EndingTrigger] Checking Rule 2 - Sage Score ({idealism}+{rationalism}+{order}={sageScore}) >= 30? {sageScore >= 30}");
+        if (sageScore >= 30)
         {
             Debug.Log("[EndingTrigger] Rule 2 triggered: THE SAGE (High Idealism+Rationalism+Order)");
             return EndingType.Sage;
@@ -141,8 +141,8 @@ public class EndingTrigger : MonoBehaviour
 
         // Rule 3: If (Materialism + Empiricism + Chaos) ≥ 15 → THE CHANGEMAKER
         int changemakerScore = materialism + empiricism + chaos;
-        Debug.Log($"[EndingTrigger] Checking Rule 3 - Changemaker Score ({materialism}+{empiricism}+{chaos}={changemakerScore}) >= 15? {changemakerScore >= 15}");
-        if (changemakerScore >= 15)
+        Debug.Log($"[EndingTrigger] Checking Rule 3 - Changemaker Score ({materialism}+{empiricism}+{chaos}={changemakerScore}) >= 25? {changemakerScore >= 25}");
+        if (changemakerScore >= 25)
         {
             Debug.Log("[EndingTrigger] Rule 3 triggered: THE CHANGEMAKER (High Materialism+Empiricism+Chaos)");
             return EndingType.Changemaker;
