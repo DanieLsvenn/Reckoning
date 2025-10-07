@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using Ink.Parsed;
+using System.Collections.Generic;
 
 public class EndingTrigger : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class EndingTrigger : MonoBehaviour
     [SerializeField] private EndingType predictedEnding;
     
     private bool isTriggered = false; // Prevent multiple triggers
+
+    [SerializeField] private List<GameObject> texts = new();
     
     // Static flag to indicate when ending fadeout is happening (used by PlayerController)
     public static bool IsFadingOut { get; private set; } = false;
@@ -63,6 +67,7 @@ public class EndingTrigger : MonoBehaviour
         // Check if the player entered the trigger
         if (other.CompareTag("Player"))
         {
+            TurnOffText();
             TriggerEnding();
         }
     }
@@ -72,7 +77,16 @@ public class EndingTrigger : MonoBehaviour
         // Support for 2D colliders as well
         if (other.CompareTag("Player"))
         {
+            TurnOffText();
             TriggerEnding();
+        }
+    }
+
+    private void TurnOffText()
+    {
+        foreach (GameObject go in texts)
+        {
+            go.SetActive(false);
         }
     }
 
