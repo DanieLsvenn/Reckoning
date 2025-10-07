@@ -984,6 +984,8 @@ PlayableDirector:
     value: {fileID: 2030139181}
   - key: {fileID: -5622554362643944013, guid: 912d124d21dd1b34cb7858ab067eb668, type: 2}
     value: {fileID: 1782625304}
+  - key: {fileID: -2641481830123835374, guid: 912d124d21dd1b34cb7858ab067eb668, type: 2}
+    value: {fileID: 709326290}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &658430363
@@ -1001,6 +1003,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &709326289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1057316521971762509, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+  m_PrefabInstance: {fileID: 1367170992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &709326290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709326289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 11fefd8ecb9309b4d929701aac23f496, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 709326291}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: StopSoundTrack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &709326291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5570136544104503229, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+  m_PrefabInstance: {fileID: 1367170992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709326289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7705b20135d4474a904e4b3aeff45fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833811544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1597,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1057316521971762509, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 709326290}
   m_SourcePrefab: {fileID: 100100000, guid: fde1b34fada9c864ab80503f4042ae9a, type: 3}
 --- !u!1 &1782625302
 GameObject:
