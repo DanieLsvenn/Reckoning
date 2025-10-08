@@ -33,6 +33,8 @@ public class IngameMenu : MonoBehaviour
 
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
+            if (AudioManager.IsInitialized)
+                AudioManager.Instance.PlaySound(SoundEffectType.MenuButton);
             Debug.Log("[IngameMenu] Esc was pressed");
             if (!menuActive) Show();
             if (menuActive) Hide();
@@ -42,6 +44,8 @@ public class IngameMenu : MonoBehaviour
 
     public void OnContinueButtonClick()
     {
+        if (AudioManager.IsInitialized)
+            AudioManager.Instance.PlaySound(SoundEffectType.MenuButton);
         Hide();
     }
 
@@ -55,6 +59,8 @@ public class IngameMenu : MonoBehaviour
 
     public void OnOpenMenuButtonClick()
     {
+        if (AudioManager.IsInitialized)
+            AudioManager.Instance.PlaySound(SoundEffectType.MenuButton);
         bool menuActive = Menu.activeSelf;
 
 
