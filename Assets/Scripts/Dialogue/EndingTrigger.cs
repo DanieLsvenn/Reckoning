@@ -1,9 +1,10 @@
+using Ink.Parsed;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
-using Ink.Parsed;
-using System.Collections.Generic;
 
 public class EndingTrigger : MonoBehaviour
 {
@@ -276,9 +277,10 @@ public class EndingTrigger : MonoBehaviour
         }
         
         if (!createFadeOverlayAutomatically) return;
-        
+
         // Find or create Canvas
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = FindObjectsOfType<Canvas>()
+    .FirstOrDefault(c => c.name == "WhiteFadeOverlayCanvas");
         if (canvas == null)
         {
             GameObject canvasGO = new GameObject("FadeCanvas");

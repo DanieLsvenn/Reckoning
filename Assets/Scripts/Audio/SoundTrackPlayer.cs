@@ -109,6 +109,7 @@ public class SoundTrackPlayer : MonoBehaviour
             AudioManager.Instance.musicSource.volume = Mathf.Lerp(0f, endVolume, t / fadeTime);
             yield return null;
         }
+        AudioManager.Instance.musicSource.volume = endVolume;
     }
 
     private void OnEnable()
