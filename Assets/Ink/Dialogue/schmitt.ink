@@ -1,4 +1,4 @@
-VAR idealism = 0
+/*VAR idealism = 0
 VAR materialism = 0  
 VAR rationalism = 0
 VAR empiricism = 0
@@ -204,5 +204,247 @@ He leans forward. For a moment, his face is a blade under candlelight. The last 
 
 Schmitt:  
 Name your enemy — and earn your right. #speaker:schmitt
+
+-> DONE
+*/
+VAR idealism = 0
+VAR materialism = 0
+VAR rationalism = 0
+VAR empiricism = 0
+VAR order = 0
+VAR chaos = 0
+VAR pessimism = 0
+
+-> schmitt_scene
+
+=== schmitt_scene ===
+
+Căn phòng vừa là tòa án, vừa là lăng mộ: gỗ đen, một ngọn đèn thấp, chiếc bàn dài như thể nuốt chửng ánh sáng. Không khí chuyển động như tiếng thở dài từ mấy thế kỷ trước – chưa bao giờ ngừng lại. Carl Schmitt ngồi ở đầu bàn như vị quan tòa luôn háo hức với mỗi bản án. Gương mặt ông không mang ác ý – chỉ là sự quan tâm chính xác của kẻ đã lập danh mục mọi tội lỗi. Khi lời nói rơi xuống, đó là tơ lụa phủ lên thép.
+
+#speaker:schmitt
+Schmitt: Ngồi. Đừng vội. Lời thú tội thường vụng về; điều ta cần không phải tiếng ồn, mà là một cái tên sạch sẽ. Tên làm cho sự vật trở nên thật. Chúng khiến kẻ thù trở nên tất yếu. Chúng cắt đứt thế giới thành từng mảnh sự thật vừa ăn. Đúng không nào, ngài Marshall?
+
+#speaker:schmitt
+
+* [Tôi từ chối bị đặt tên.] Tôi không thuộc về bất kỳ hạng mục nào của ông.
+    #moral:chaos:+1
+    ~ chaos += 1
+    Schmitt: Sự từ chối cũng là một câu trả lời – loại thảm hại nhất, bởi nó buộc ta phải đặt tên cho ngươi dù sao. Ngươi cầu xin sự vô danh; ta sẽ ban cho ngươi phân loại.
+    #speaker:schmitt
+    -> schmitt_reflection
+
+* [Cứ làm đi.] Hãy đặt tên cho tôi. Tôi chịu được.
+    #moral:order:+1
+    ~ order += 1
+    Schmitt: Dũng cảm, hay tuyệt vọng. Sẽ thấy thôi. Có phẩm giá khi được đặt tên – nếu ngươi chấp nhận hậu quả. Nhưng biết cho: tên không phải là lòng thương. Chúng là luật lệ đang chờ được thi hành.
+    #speaker:schmitt
+    -> schmitt_reflection
+
+* [Không còn gì để xét xử.] Tôi đã rỗng từ lâu.
+    #moral:pessimism:+2
+    ~ pessimism += 2
+    Schmitt: Tuyệt vời. Cái rỗng là mảnh đất màu mỡ nhất cho quyết định. Kẻ rỗng không phủ nhận được gì; hắn dễ dàng bị tuyên bố là kẻ thù, và bị xử lý một cách tiện lợi.
+    #speaker:schmitt
+    -> schmitt_reflection
+
+* [Ông không phải là thượng đế.] Ông chỉ là kẻ cầm sổ sách.
+    #moral:rationalism:+1
+    ~ rationalism += 1
+    Schmitt: Ta là người biết quyết định tạo ra điều gì. Thượng đế là tình cảm; ta là công cụ. Công cụ tạo ra kết quả. Kết quả không cần van xin.
+    #speaker:schmitt
+    -> schmitt_reflection
+
+=== schmitt_reflection ===
+
+Ông mở một cuốn sổ mỏng – không dày, chỉ là danh sách những từ đơn lẻ, khủng khiếp. Mỗi từ nằm trên trang giấy như một khúc xương. Ông lướt ngón tay qua một từ, mỉm cười như đang đọc thực đơn.
+
+#speaker:schmitt
+Schmitt: Ngươi trở về từ thế giới, mang theo tiếng ồn và máu. Ngươi muốn gọi đó bằng bất cứ thứ gì ngoài chiến tranh – gọi là đạo đức, gọi là nhiệm vụ. Ta gọi nó là dữ liệu thô. Chính trị từng là vậy: ai đó quyết định mạng sống của người này tiếp tục, và mạng sống của người kia có thể xin lỗi rồi xóa đi.
+
+#speaker:schmitt
+
+* [Vậy hãy đặt tên kẻ thù của tôi.] Nếu đặt tên là điểm mấu chốt, hãy nói ra.
+    #moral:order:+1
+    ~ order += 1
+    Schmitt: Được thôi. Có những khuôn mẫu ở đây; chúng nhỏ bé và xấu xa. Kẻ thù của ngươi có phải là cái tôi đánh thức ngươi mỗi đêm? Thế giới trả công cho sự vâng lời của ngươi? Hay những thể chế khoác cái tàn nhẫn vào cờ hiệu?
+    #speaker:schmitt
+    -> schmitt_query
+
+* [Đừng đặt tên nữa.] Ngôn từ đã phản bội tôi.
+    #moral:pessimism:+2
+    ~ pessimism += 2
+    Schmitt: Ngôn từ và luật lệ chỉ phản bội kẻ không dám chọn. Nhưng sự thất bại cũng là một thứ lòng thương: nó lột bỏ màn giả tạo, để lại thứ nguyên sơ.
+    #speaker:schmitt
+    -> schmitt_query
+
+* [Hãy đặt tên tất cả.] Cả thế giới đều có tội.
+    #moral:chaos:+2
+    #moral:materialism:+1
+    ~ chaos += 2
+    ~ materialism += 1
+    Schmitt: Lên án toàn diện. Đam mê, thiếu chính xác. Một khởi điểm nguy hiểm – những kẻ đặt tên mọi thứ là kẻ thù sau này thường khắc tên lên xương.
+    #speaker:schmitt
+    -> schmitt_query
+
+* [Hãy đặt tên tôi.] Nếu ông phải, hãy cầm lấy công cụ và vung xuống.
+    #moral:order:+2
+    #moral:pessimism:+1
+    ~ order += 2
+    ~ pessimism += 1
+    Schmitt: Sự sẵn lòng đó thật thú vị. Thánh nhân tình nguyện; bạo chủ cũng tình nguyện. Khác biệt là cách họ ngủ.
+    #speaker:schmitt
+    -> schmitt_query
+
+=== schmitt_query ===
+
+Ngọn đèn lung lay. Bên ngoài, thứ gì đó giống như tiếng tụng niệm từ xa – hoặc có thể là gió – khâu sự im lặng thành nhịp tim. Ông nghiêng người về phía trước với sự lịch sự tàn nhẫn. Mỗi câu nói là một con dao nhỏ, lịch thiệp.
+
+#speaker:schmitt
+Schmitt: Trả lời thẳng. Ai là kẻ thù của ngươi? Chọn một từ nếu phải. Đây không phải tu từ học; đây là phép tính của hệ quả.
+
+#speaker:schmitt
+
+* [Chính tôi.]
+    #moral:pessimism:+2
+    #moral:order:+1
+    ~ pessimism += 2
+    ~ order += 1
+    Schmitt: Tuyệt vời. Bản thân làm kẻ thù – loại thân mật nhất. Ngươi sẽ tự xét xử trong riêng tư và tự tuân theo trong công khai. Đó là chủ quyền không có khán giả. Là sự cai trị của một, và vương miện cô đơn nhất.
+    #speaker:schmitt
+    -> schmitt_consequence
+
+* [Thế giới đã gửi tôi đi.] Thế giới đã gửi tôi đi.
+    #moral:chaos:+1
+    #moral:pessimism:+1
+    ~ chaos += 1
+    ~ pessimism += 1
+    Schmitt: Vật tế thần gọn gàng. Thế giới là sự trừu tượng tiện lợi; nó khiến trả thù trở thành nghi lễ. Nhưng hãy cẩn thận: trả thù cần một bộ máy. Ai sẽ đưa nó cho ngươi?
+    #speaker:schmitt
+    -> schmitt_consequence
+
+* [Những kẻ nắm quyền.]
+    #moral:idealism:+1
+    #moral:order:+1
+    ~ idealism += 1
+    ~ order += 1
+    Schmitt: Vậy ngươi tìm cách thay một cái tên bằng một cái tên khác – để trèo lên nấc thang chỉ huy. Tham vọng mặc chung quần áo với thù hận.
+    #speaker:schmitt
+    -> schmitt_consequence
+
+* [Không ai cả.]
+    #moral:pessimism:+3
+    ~ pessimism += 3
+    Schmitt: Vậy ngươi chọn quên lãng làm chính sách. Đó là một lập trường chính trị, và kẻ chết nổi tiếng là công dân gọn gàng.
+    #speaker:schmitt
+    -> schmitt_consequence
+
+=== schmitt_consequence ===
+
+Ông gõ nhẹ vào cuốn sổ; âm thanh như răng nghiến. Không có lòng thương trong nhịp điệu – chỉ có sự chắc chắn thoải mái của kẻ biết quyết định buộc phải làm gì.
+
+#speaker:schmitt
+Schmitt: Lựa chọn sinh ra thể chế. Thể chế sinh ra kết quả. Kết quả nhuốm màu đôi tay. Nếu ngươi nói "chính tôi," ngươi mời gọi hình phạt, cải tạo, hoặc hành quyết – nhưng ngươi vẫn là chủ quyền của số phận mình. Nếu ngươi nói "chúng," ngươi huy động, ngươi bạo loạn, ngươi trở thành cái tên mà kẻ khác sẽ đọc và sợ hãi. Nếu ngươi nói "không ai," ngươi chọn bị xóa mờ.
+
+#speaker:schmitt
+
+* [Tôi sẽ tự xét xử.] Tôi sẽ trả lời cho nó.
+    #moral:order:+2
+    #moral:idealism:+1
+    ~ order += 2
+    ~ idealism += 1
+    Schmitt: Cao thượng, và sạch sẽ. Tự xét xử là công lý chậm nhất – một luyện ngục ngươi phải điều hành hàng ngày. Một số tìm thấy bình yên trong việc ghi chép sổ sách như vậy; số khác bị nghiền nát dưới sức nặng.
+    #speaker:schmitt
+    -> schmitt_final
+
+* [Tôi sẽ chiến đấu với chúng.] Tôi sẽ đặt tên kẻ thù và hành động.
+    #moral:chaos:+2
+    #moral:materialism:+1
+    ~ chaos += 2
+    ~ materialism += 1
+    Schmitt: Vậy hãy chọn công cụ cẩn thận. Bạo lực tự tổ chức. Kẻ chính nghĩa thường trở thành quái vật hiệu quả nhất. Ngươi chấp nhận rủi ro đó chứ?
+    #speaker:schmitt
+    -> schmitt_final
+
+* [Tôi sẽ xóa mình.] Tôi sẽ biến mất.
+    #moral:pessimism:+3
+    ~ pessimism += 3
+    Schmitt: Tẩy xóa phổ biến trong giới kiệt sức. Nó gọn gàng, tàn nhẫn, và chung cuộc. Lịch sử không tôn trọng gì bằng khoảng trống nơi một con người từng tồn tại.
+    #speaker:schmitt
+    -> schmitt_final
+
+* [Tôi sẽ chỉ đặt tên vài kẻ đồi bại.] Công lý có chọn lọc.
+    #moral:order:+1
+    #moral:idealism:+1
+    ~ order += 1
+    ~ idealism += 1
+    Schmitt: Chính xác. Nguy hiểm, chính nghĩa, và hiếm hơn ngươi tưởng. Mục tiêu phải được xác định, nhân chứng được thu thập, kiên nhẫn được áp dụng. Đó là sự trả thù của quan liêu – chậm, hợp pháp, bền bỉ.
+    #speaker:schmitt
+    -> schmitt_final
+
+=== schmitt_final ===
+
+Ông đóng cuốn sổ mỏng lại với động tác nhẹ nhàng, thỏa mãn. Căn phòng lạnh hơn, như thể quyết định của ông hút nhiệt khỏi không khí.
+
+#speaker:schmitt
+Schmitt: Nghe ta và đừng nhầm lẫn sự dịu dàng với lòng thương. Ta là người dạy rằng kẻ thù không phải ẩn dụ – chúng là danh từ. Một khi ngươi đặt tên chúng, mọi thứ theo sau: luật pháp, bạo lực, ký ức, quên lãng. Chuỗi dây đó dài và tinh tế. Nó phá vỡ mọi thứ một cách tuyệt đẹp.
+
+#speaker:schmitt
+
+Ông mỉm cười, nụ cười nhỏ và sắc bén như dao mổ. Ánh đèn tạo nên khuôn mặt ông như phù điêu xương.
+
+#speaker:schmitt
+Schmitt: Nếu ngươi tuyên bố bản thân là kẻ thù, ngươi sẽ trở thành đền thờ kỷ luật hoặc liệt sĩ của sự điên loạn. Nếu ngươi tuyên bố thế giới, ngươi sẽ thấy bộ máy quyền lực đói khát và khôn ngoan. Nếu ngươi tuyên bố kẻ quyền thế, ngươi phải trở thành tấm gương của chúng – và gương luôn nói dối. Nếu ngươi tuyên bố không ai, ngươi sẽ bị xóa, và cuốn sổ sẽ thở phào nhẹ nhõm khi không có ngươi.
+
+#speaker:schmitt
+
+* [Vậy hãy biến tôi thành quan tòa.] Tôi sẽ nhận lấy cái tên và sức nặng của nó.
+    #moral:order:+2
+    #moral:chaos:+1
+    ~ order += 2
+    ~ chaos += 1
+    Schmitt: Được thôi. Cầm lấy công cụ. Cai trị. Sự bình yên ngươi khao khát sẽ được mua bằng những quyết định để lại vết nhơ. Ngươi sẽ là chủ quyền – và có lẽ, đến cuối cùng, là quái vật.
+    #speaker:schmitt
+    -> schmitt_scene_end
+
+* [Vậy hãy để tôi chết không dấu vết.] Xóa tôi khỏi câu chuyện.
+    #moral:pessimism:+3
+    ~ pessimism += 3
+    Schmitt: Một thứ hèn nhát duyên dáng. Cách yên lặng nhất để tránh trách nhiệm là biến mất. Thế giới sẽ nhún vai và tiếp tục.
+    #speaker:schmitt
+    -> schmitt_scene_end
+
+* [Vậy hãy để tôi thử sửa chữa.] Tôi sẽ đặt tên vài kẻ đồi bại và tái thiết.
+    #moral:idealism:+2
+    #moral:order:+1
+    ~ idealism += 2
+    ~ order += 1
+    Schmitt: Vậy hãy học kiên nhẫn. Cách mạng được khởi đầu bởi cơn thịnh nộ và hoàn tất bởi thư ký. Nếu ngươi muốn sửa chữa, hãy chuẩn bị bị làm cho nhỏ bé bởi chính những hệ thống ngươi mơ ước thay đổi.
+    #speaker:schmitt
+    -> schmitt_scene_end
+
+* [Tôi sẽ thiêu rụi tất cả.] Tất cả.
+    #moral:chaos:+3
+    #moral:materialism:+1
+    ~ chaos += 3
+    ~ materialism += 1
+    Schmitt: Chân thành tàn bạo. Những đại hỏa hoạn rất ngoạn mục để xem. Nhưng chúng cũng bất thành. Ngươi sẽ không sống để thấy điều gì mọc lên sau ngọn lửa.
+    #speaker:schmitt
+    -> schmitt_scene_end
+
+=== schmitt_scene_end ===
+
+Ông đứng dậy, động tác tiết kiệm và chung cuộc. Giọng nói của ông là ký ức của một bản án.
+
+#speaker:schmitt
+Schmitt: Hãy quyết định, vậy. Mọi luật lệ bắt đầu bằng một định nghĩa. Mọi hỗn loạn bắt đầu bằng một lời hứa. Ngươi đã được ban cho một từ. Nói nó thành tiếng, và xem thế giới sẽ làm gì để đáp lại.
+
+#speaker:schmitt
+
+Ông nghiêng người về phía trước. Trong một khoảnh khắc, khuôn mặt ông là lưỡi dao dưới ánh nến. Điều cuối cùng ông nói không phải lời khuyên; đó là mệnh lệnh có vị như tro tàn.
+
+#speaker:schmitt
+Schmitt: Hãy đặt tên kẻ thù của ngươi – và kiếm lấy quyền của ngươi.
+
+#speaker:schmitt
 
 -> DONE

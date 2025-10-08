@@ -1,4 +1,4 @@
-VAR idealism = 0
+/*VAR idealism = 0
 VAR materialism = 0  
 VAR rationalism = 0
 VAR empiricism = 0
@@ -138,5 +138,205 @@ Confucius: If you truly wish for harmony, start where the smallest cracks form �
 === confucius_scene_end ===
 Confucius folds his hands once more. The lantern light dims until only his silhouette remains — rigid, unbending, eternal. #speaker:confucius
 Confucius: Heaven does not forgive. It endures. If you wish to endure with it, discipline yourself until the body obeys the mind, and the mind obeys something higher. If not — the mud welcomes you. #speaker:confucius
+
+-> DONE
+*/
+
+VAR idealism = 0
+VAR materialism = 0  
+VAR rationalism = 0
+VAR empiricism = 0
+VAR order = 0
+VAR chaos = 0
+VAR pessimism = 0
+
+-> confucius_scene
+
+=== confucius_scene ===
+Một khu sân tĩnh mịch chìm trong bóng chiều vĩnh cửu.  
+Những chiếc đèn đá hắt ra ánh sáng đỏ nhạt, mờ đục.  
+Hương trầm phảng phất trong không khí, quyện cùng mùi giấy ẩm lâu năm.  
+Khổng Tử đứng bên gốc cây cổ thụ, tay xếp gọn trong tay áo.  
+Ánh mắt ông vững chãi, nhưng hơi ấm trong đó như được diễn lại vô số lần — ánh nhìn của một người đã phán xét ngươi từ trước khi ngươi mở lời. #speaker:confucius
+
+Confucius: Ngươi đến đây, khách từ phương xa, mang theo tàn hoang sau bước chân mình.  
+Ta sẽ không hỏi ngươi đã làm gì — bởi lễ không sinh ra để thú tội, mà để lập lại trật tự.  
+Nói ta nghe... ngươi nghĩ thế giới này nợ ngươi điều chi? #speaker:confucius
+
+* [Không gì cả. Thế giới chẳng nợ ta gì hết.] Ta chẳng xứng đáng điều gì. Thế giới đã lấy đủ phần của nó. #moral:pessimism:+2 #moral:order:+1
+  ~ pessimism += 2
+  ~ order += 1
+  Confucius: Một câu trả lời khiêm nhường... hoặc là của một linh hồn đã gãy.  
+Khi người quên vị trí của mình, hỗn loạn theo sau;  
+khi hắn phủ nhận giá trị của mình, sự mục ruỗng đến nhanh hơn.  
+Ngươi thuộc về đâu — kiêu ngạo hay lãng quên? #speaker:confucius
+
+  * * [Lãng quên. Ta đã bỏ rơi bổn phận.] Ta đã rời bỏ mọi vai trò từng mang. #moral:pessimism:+1 #moral:order:+1
+      ~ pessimism += 1
+      ~ order += 1
+      Confucius: Đạo không biến mất khi người ta quay lưng. Nó chỉ đứng yên mà đợi.  
+Cảm giác hổ thẹn trong lòng ngươi chính là bóng của sự chờ đợi ấy.  
+Nhưng hổ thẹn có thể rèn thành nhân, nếu ngươi quỳ đủ lâu để hiểu vì sao mình ngã. #speaker:confucius
+      -> confucius_ritual
+  * * [Kiêu ngạo. Ta tưởng mình có thể tự tạo con đường riêng.] Ta tưởng mình có thể đi ngoài hệ thống, vượt lên trên nó. #moral:chaos:+2 #moral:rationalism:+1
+      ~ chaos += 2
+      ~ rationalism += 1
+      Confucius: Kẻ khinh miệt trật tự sớm thành bóng ma — xa rời gia đình, nghĩa vụ, và cả trời.  
+Ma lang thang, chúng không dựng xây được gì.  
+Ngươi còn tin vào việc dựng xây chăng? #speaker:confucius
+      -> confucius_ritual
+
+* [Thế giới nợ ta công bằng.] Nó lẽ ra phải công bằng. Ta đã cho đi, và chẳng nhận lại gì. #moral:materialism:+1 #moral:pessimism:+1
+  ~ materialism += 1
+  ~ pessimism += 1
+  Confucius: “Công bằng” là lời nói của kẻ cầm quyền.  
+Điều thế giới nợ ngươi — chính là hình dạng của đức hạnh trong ngươi.  
+Trời nhìn qua cân bằng, không qua thương lượng.  
+Ngươi đòi công lý... nhưng ngươi đã hành xử theo công lý chưa? #speaker:confucius
+
+  * * [Ta đã cố, nhưng thất bại.] Ta từng sống theo lẽ công, nhưng nó chẳng bảo vệ ta. #moral:pessimism:+2 #moral:order:+1
+      ~ pessimism += 2
+      ~ order += 1
+      Confucius: Vậy ngươi đã hiểu sai công lý — tưởng nó là tấm khiên, trong khi nó là gánh nặng.  
+Người quân tử giữ đạo, dù đạo ấy có nghiền nát chính thân mình. #speaker:confucius
+      -> confucius_ritual
+  * * [Không. Ta chỉ đòi hỏi nó.] Ta muốn người khác công chính, chứ không phải chính ta. #moral:chaos:+1 #moral:materialism:+1
+      ~ chaos += 1
+      ~ materialism += 1
+      Confucius: Vậy ngươi chẳng khác viên quan cong lưng, miệng kết án kẻ trộm trong khi tay vẫn giấu vàng.  
+Cân bằng không thể cầu xin — nó phải được vun bồi. #speaker:confucius
+      -> confucius_ritual
+
+* [Thế giới nợ ta sự bình yên.] Ta chỉ muốn yên tĩnh — không cờ xí, không tiếng hét. #moral:pessimism:+1 #moral:idealism:+1
+  ~ pessimism += 1
+  ~ idealism += 1
+  Confucius: Bình yên không phải là tĩnh lặng.  
+Nó là trật tự ngân nga dưới bề mặt — là hòa điệu được rèn từ tiết chế.  
+Ngươi tìm sự tĩnh lặng của cái chết, chứ không phải trật tự của sự sống.  
+Nói ta nghe, người lính... ngươi vẫn khao khát im lặng hơn là ý nghĩa sao? #speaker:confucius
+
+  * * [Phải. Ý nghĩa chỉ là vết thương.] Ta thà tê liệt còn hơn là hiểu, vì hiểu luôn đau. #moral:pessimism:+2 #moral:materialism:+1
+      ~ pessimism += 2
+      ~ materialism += 1
+      Confucius: Thế thì ngươi đã ở giữa những kẻ bất hiếu chết rồi — những kẻ chẳng nói, chẳng cảm, chẳng để lại dấu gì.  
+Sự tĩnh lặng ngươi tìm không phải là bình yên, mà là trừng phạt. #speaker:confucius
+      -> confucius_ritual
+  * * [Không. Ta muốn hòa điệu.] Hòa điệu, chứ không im lặng. Cân bằng, chứ không lãng quên. #moral:idealism:+1 #moral:order:+1
+      ~ idealism += 1
+      ~ order += 1
+      Confucius: Vậy hãy học hòa điệu từ những điều nhỏ nhất — lời chào, lễ nghi, kỷ luật.  
+Đạo bắt đầu từ cử chỉ, rồi mới tới thiên mệnh. #speaker:confucius
+      -> confucius_ritual
+
+=== confucius_ritual ===
+Tiếng trống khẽ vang trong không khí.  
+Khổng Tử ra hiệu nhìn xuống nền sân — nơi các đường mờ dần hiện lên thành một vòng tròn: giới hạn của nghi lễ. #speaker:confucius
+
+Confucius: Mỗi người đều đứng trong một vòng tròn bổn phận — cha, con, bằng hữu, thần dân.  
+Khi một vòng đổ, những vòng khác chùng xuống.  
+Hãy nói ta nghe, ngươi đã làm gãy vòng nào trước tiên? #speaker:confucius
+
+* [Vòng gia đình.] Ta phụ người thân — chẳng viết thư, chẳng hỏi han. #moral:pessimism:+1 #moral:order:+1
+  ~ pessimism += 1
+  ~ order += 1
+  Confucius: Bỏ quên gốc là làm cây khô héo.  
+Ngươi đi tìm tự do, và chỉ gặp rỗng không.  
+Hãy trở về với gốc nếu còn muốn hái trái. #speaker:confucius
+
+  * * [Họ sẽ không tha thứ cho ta.] Họ sẽ chẳng đón ta về. #moral:pessimism:+2
+      ~ pessimism += 2
+      Confucius: Tha thứ là bổn phận của họ, nhưng sám hối là của ngươi.  
+Hãy viết thư, dù trang giấy cháy trước khi đến tay.  
+Nghi lễ vẫn có nghĩa, ngay cả khi không ai nhìn thấy. #speaker:confucius
+      -> confucius_reflection
+  * * [Ta sẽ trở lại một ngày nào đó.] Ta sẽ thử, một ngày nào đó. #moral:idealism:+1 #moral:order:+1
+      ~ idealism += 1
+      ~ order += 1
+      Confucius: “Một ngày nào đó” — đó là từ khiến hành động thối rữa.  
+Hãy bắt đầu ngay khi tên ngươi còn được nói ra mà chưa kèm khinh miệt. #speaker:confucius
+      -> confucius_reflection
+
+* [Vòng bằng hữu.] Ta phụ những người ở cạnh ta. Ta bỏ mặc họ mục nát. #moral:pessimism:+2 #moral:chaos:+1
+  ~ pessimism += 2
+  ~ chaos += 1
+  Confucius: Trung nghĩa là xương sống của con người.  
+Mất nó, thân ngươi chỉ còn là thân gấp khúc.  
+Ngươi bẻ gãy xương sống, rồi lại thắc mắc vì sao mình phải bò. #speaker:confucius
+
+  * * [Họ xứng đáng hơn ta.] Ta chẳng xứng để dẫn hay theo. #moral:pessimism:+2
+      ~ pessimism += 2
+      Confucius: Tự thương mình là mặt nạ của hèn nhát.  
+Kẻ dũng cảm đối diện tội lỗi bằng hành động, không bằng than thở.  
+Nếu mồ họ còn, hãy đến viếng.  
+Nếu họ chết rồi, nói chuyện với linh hồn cũng hơn im lặng. #speaker:confucius
+      -> confucius_reflection
+  * * [Ta không chịu nổi cái chết của họ.] Ta bỏ đi vì ám ảnh họ mãi. #moral:pessimism:+1 #moral:idealism:+1
+      ~ pessimism += 1
+      ~ idealism += 1
+      Confucius: Một nỗi sợ cao quý — nhưng đừng để sợ hãi làm chủ.  
+Tôn vinh cái chết của họ bằng cách mang theo đức hạnh, không phải bóng ma. #speaker:confucius
+      -> confucius_reflection
+
+* [Vòng trời.] Ta đã phản bội thiên đạo. Ta thôi tin. #moral:pessimism:+2 #moral:rationalism:+1
+  ~ pessimism += 2
+  ~ rationalism += 1
+  Confucius: Trời không đòi lòng tin. Trời đòi sự hòa hợp.  
+Ngươi đã nhầm niềm tin với sự ưu ái.  
+Thiên đạo không cảm tính — nó phản chiếu hành vi, không nghe lời cầu nguyện. #speaker:confucius
+
+  * * [Vậy thì trời tàn nhẫn.] Trời vô cảm — sao ta phải phục? #moral:chaos:+1 #moral:pessimism:+1
+      ~ chaos += 1
+      ~ pessimism += 1
+      Confucius: Tàn nhẫn ư? Không. Chỉ là không thỏa hiệp.  
+Ngươi gọi nó là tàn nhẫn vì nó từ chối nịnh bợ nỗi đau của ngươi. #speaker:confucius
+      -> confucius_reflection
+  * * [Vậy ta sẽ lại hòa hợp.] Nếu lòng tin rỗng, ta sẽ thực hành hòa hợp. #moral:order:+1 #moral:idealism:+1
+      ~ order += 1
+      ~ idealism += 1
+      Confucius: Hành vi, không cảm xúc, mới khôi phục được Đạo.  
+Thi hành chính là lời cầu nguyện duy nhất mà trời lắng nghe. #speaker:confucius
+      -> confucius_reflection
+
+=== confucius_reflection ===
+Hương trầm nhạt dần. Đèn lồng đỏ chập chờn, cho đến khi chỉ còn đường nét mờ của Khổng Tử trong bóng tối. Giọng ông hạ thấp, lạnh hơn, như gió cuối thu. #speaker:confucius
+
+Confucius: Nghi lễ không có đức hạnh chỉ là sân khấu.  
+Đức hạnh không có nghi lễ chỉ là tiếng ồn.  
+Các ngươi ở phương Tây gọi đó là giả hình;  
+còn ta gọi nó là văn minh.  
+Đừng cầu trời tha thứ — hãy sống sao cho không cần được tha thứ. #speaker:confucius
+
+Ông dừng lại, hơi nghiêng đầu — không hẳn là nhân từ.  
+Confucius: Nếu ngươi thật lòng muốn hòa điệu, hãy bắt đầu từ những vết nứt nhỏ nhất — lời chào, lời hứa, giọng nói.  
+Văn minh khởi trong miệng trước khi bén rễ trong linh hồn.  
+Nhưng có lẽ... miệng ngươi đã quá lâu không biết nói điều phải. #speaker:confucius
+
+* [Ta vẫn có thể học.] Hãy dạy ta. Ta vẫn có thể học lời đúng. #moral:idealism:+1 #moral:order:+1
+  ~ idealism += 1
+  ~ order += 1
+  Confucius: Vậy thì cúi đầu.  
+Thực hành không cần niềm tin vẫn hơn niềm tin không hành động.  
+Lặp đi lặp lại đủ lâu — trái tim có thể theo kịp hình thức. #speaker:confucius
+  -> confucius_scene_end
+
+* [Lời nói không cứu được mục ruỗng.] Lời lẽ chẳng nghĩa lý gì với xác chết. #moral:pessimism:+2 #moral:chaos:+1
+  ~ pessimism += 2
+  ~ chaos += 1
+  Confucius: Vậy thì hãy mục ruỗng cho đúng lễ.  
+Ngay cả cây sắp đổ cũng phải ngã trong khuôn phép. #speaker:confucius
+  -> confucius_scene_end
+
+* [Ta khước từ trật tự của ngươi.] Nghi lễ là dối trá của kẻ sợ tư duy. #moral:chaos:+2 #moral:rationalism:+1
+  ~ chaos += 2
+  ~ rationalism += 1
+  Confucius: Tư duy không có nghi lễ sinh ra quái vật — những kẻ tự lý giải sự thối nát của chính mình.  
+Có lẽ đó chính là ngươi — con quái vật do lý trí tạo ra khi nó đánh mất hổ thẹn. #speaker:confucius
+  -> confucius_scene_end
+
+=== confucius_scene_end ===
+Khổng Tử lại chắp tay. Ánh sáng đèn dần tắt, chỉ còn bóng dáng ông — cứng rắn, bất động, bất diệt. #speaker:confucius
+Confucius: Trời không tha thứ. Trời chỉ tồn tại.  
+Nếu ngươi muốn cùng nó tồn tại, hãy rèn mình cho đến khi thân phục tâm, và tâm phục điều cao hơn.  
+Nếu không... bùn đất vẫn luôn mở rộng vòng tay. #speaker:confucius
 
 -> DONE
